@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36D31353210D59E500B048DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31352210D59E500B048DD /* AppDelegate.swift */; };
+		36D31355210D59E500B048DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31354210D59E500B048DD /* ViewController.swift */; };
+		36D31358210D59E500B048DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D31356210D59E500B048DD /* Main.storyboard */; };
+		36D3135A210D59E700B048DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D31359210D59E700B048DD /* Assets.xcassets */; };
+		36D3135D210D59E700B048DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D3135B210D59E700B048DD /* LaunchScreen.storyboard */; };
+		36D31368210D59E700B048DD /* NotetteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31367210D59E700B048DD /* NotetteTests.swift */; };
+		36D31373210D59E700B048DD /* NotetteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31372210D59E700B048DD /* NotetteUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36D31364210D59E700B048DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36D31347210D59E500B048DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36D3134E210D59E500B048DD;
+			remoteInfo = Notette;
+		};
+		36D3136F210D59E700B048DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36D31347210D59E500B048DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36D3134E210D59E500B048DD;
+			remoteInfo = Notette;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36D3134F210D59E500B048DD /* Notette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notette.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D31352210D59E500B048DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		36D31354210D59E500B048DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36D31357210D59E500B048DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36D31359210D59E700B048DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36D3135C210D59E700B048DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36D3135E210D59E700B048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36D31363210D59E700B048DD /* NotetteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotetteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D31367210D59E700B048DD /* NotetteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotetteTests.swift; sourceTree = "<group>"; };
+		36D31369210D59E700B048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36D3136E210D59E700B048DD /* NotetteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotetteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D31372210D59E700B048DD /* NotetteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotetteUITests.swift; sourceTree = "<group>"; };
+		36D31374210D59E700B048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36D3134C210D59E500B048DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D31360210D59E700B048DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D3136B210D59E700B048DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36D31346210D59E500B048DD = {
+			isa = PBXGroup;
+			children = (
+				36D31351210D59E500B048DD /* Notette */,
+				36D31366210D59E700B048DD /* NotetteTests */,
+				36D31371210D59E700B048DD /* NotetteUITests */,
+				36D31350210D59E500B048DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36D31350210D59E500B048DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36D3134F210D59E500B048DD /* Notette.app */,
+				36D31363210D59E700B048DD /* NotetteTests.xctest */,
+				36D3136E210D59E700B048DD /* NotetteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36D31351210D59E500B048DD /* Notette */ = {
+			isa = PBXGroup;
+			children = (
+				36D31352210D59E500B048DD /* AppDelegate.swift */,
+				36D31354210D59E500B048DD /* ViewController.swift */,
+				36D31356210D59E500B048DD /* Main.storyboard */,
+				36D31359210D59E700B048DD /* Assets.xcassets */,
+				36D3135B210D59E700B048DD /* LaunchScreen.storyboard */,
+				36D3135E210D59E700B048DD /* Info.plist */,
+			);
+			path = Notette;
+			sourceTree = "<group>";
+		};
+		36D31366210D59E700B048DD /* NotetteTests */ = {
+			isa = PBXGroup;
+			children = (
+				36D31367210D59E700B048DD /* NotetteTests.swift */,
+				36D31369210D59E700B048DD /* Info.plist */,
+			);
+			path = NotetteTests;
+			sourceTree = "<group>";
+		};
+		36D31371210D59E700B048DD /* NotetteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				36D31372210D59E700B048DD /* NotetteUITests.swift */,
+				36D31374210D59E700B048DD /* Info.plist */,
+			);
+			path = NotetteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36D3134E210D59E500B048DD /* Notette */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D31377210D59E700B048DD /* Build configuration list for PBXNativeTarget "Notette" */;
+			buildPhases = (
+				36D3134B210D59E500B048DD /* Sources */,
+				36D3134C210D59E500B048DD /* Frameworks */,
+				36D3134D210D59E500B048DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notette;
+			productName = Notette;
+			productReference = 36D3134F210D59E500B048DD /* Notette.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36D31362210D59E700B048DD /* NotetteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D3137A210D59E700B048DD /* Build configuration list for PBXNativeTarget "NotetteTests" */;
+			buildPhases = (
+				36D3135F210D59E700B048DD /* Sources */,
+				36D31360210D59E700B048DD /* Frameworks */,
+				36D31361210D59E700B048DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36D31365210D59E700B048DD /* PBXTargetDependency */,
+			);
+			name = NotetteTests;
+			productName = NotetteTests;
+			productReference = 36D31363210D59E700B048DD /* NotetteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36D3136D210D59E700B048DD /* NotetteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D3137D210D59E700B048DD /* Build configuration list for PBXNativeTarget "NotetteUITests" */;
+			buildPhases = (
+				36D3136A210D59E700B048DD /* Sources */,
+				36D3136B210D59E700B048DD /* Frameworks */,
+				36D3136C210D59E700B048DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36D31370210D59E700B048DD /* PBXTargetDependency */,
+			);
+			name = NotetteUITests;
+			productName = NotetteUITests;
+			productReference = 36D3136E210D59E700B048DD /* NotetteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36D31347210D59E500B048DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Tyler Angert";
+				TargetAttributes = {
+					36D3134E210D59E500B048DD = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					36D31362210D59E700B048DD = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 36D3134E210D59E500B048DD;
+					};
+					36D3136D210D59E700B048DD = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 36D3134E210D59E500B048DD;
+					};
+				};
+			};
+			buildConfigurationList = 36D3134A210D59E500B048DD /* Build configuration list for PBXProject "Notette" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36D31346210D59E500B048DD;
+			productRefGroup = 36D31350210D59E500B048DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36D3134E210D59E500B048DD /* Notette */,
+				36D31362210D59E700B048DD /* NotetteTests */,
+				36D3136D210D59E700B048DD /* NotetteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36D3134D210D59E500B048DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D3135D210D59E700B048DD /* LaunchScreen.storyboard in Resources */,
+				36D3135A210D59E700B048DD /* Assets.xcassets in Resources */,
+				36D31358210D59E500B048DD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D31361210D59E700B048DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D3136C210D59E700B048DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36D3134B210D59E500B048DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D31355210D59E500B048DD /* ViewController.swift in Sources */,
+				36D31353210D59E500B048DD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D3135F210D59E700B048DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D31368210D59E700B048DD /* NotetteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D3136A210D59E700B048DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D31373210D59E700B048DD /* NotetteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36D31365210D59E700B048DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36D3134E210D59E500B048DD /* Notette */;
+			targetProxy = 36D31364210D59E700B048DD /* PBXContainerItemProxy */;
+		};
+		36D31370210D59E700B048DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36D3134E210D59E500B048DD /* Notette */;
+			targetProxy = 36D3136F210D59E700B048DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		36D31356210D59E500B048DD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36D31357210D59E500B048DD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36D3135B210D59E700B048DD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36D3135C210D59E700B048DD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36D31375210D59E700B048DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36D31376210D59E700B048DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36D31378210D59E700B048DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = Notette/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.Notette;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36D31379210D59E700B048DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = Notette/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.Notette;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36D3137B210D59E700B048DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = NotetteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notette.app/Notette";
+			};
+			name = Debug;
+		};
+		36D3137C210D59E700B048DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = NotetteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notette.app/Notette";
+			};
+			name = Release;
+		};
+		36D3137E210D59E700B048DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = NotetteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notette;
+			};
+			name = Debug;
+		};
+		36D3137F210D59E700B048DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TWVWBQE3T;
+				INFOPLIST_FILE = NotetteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notette;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36D3134A210D59E500B048DD /* Build configuration list for PBXProject "Notette" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D31375210D59E700B048DD /* Debug */,
+				36D31376210D59E700B048DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D31377210D59E700B048DD /* Build configuration list for PBXNativeTarget "Notette" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D31378210D59E700B048DD /* Debug */,
+				36D31379210D59E700B048DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D3137A210D59E700B048DD /* Build configuration list for PBXNativeTarget "NotetteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D3137B210D59E700B048DD /* Debug */,
+				36D3137C210D59E700B048DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D3137D210D59E700B048DD /* Build configuration list for PBXNativeTarget "NotetteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D3137E210D59E700B048DD /* Debug */,
+				36D3137F210D59E700B048DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36D31347210D59E500B048DD /* Project object */;
+}
