@@ -7,16 +7,43 @@
 //
 
 import UIKit
+import Katana
+import Tempura
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // MARK: Global store
+    var store: Store<AppState>!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.store = Store<AppState>(middleware: [], dependencies: DependenciesContainer.self)
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        /// setup the root of the navigation
+        /// this is done by invoking this method (and not in the init of the navigator)
+        /// because the navigator is instantiated by the Store.
+        /// this in turn will invoke the `installRootMethod` of the rootInstaller (self)
+        let navigator: Navigator! = (self.store!.dependencies as! DependenciesContainer).navigator
+        navigator.start(using: self, in: self.window!, at: Screen.list)
+
+        
         return true
+    }
+    
+    /// install the root of the app
+    /// this method is called by the navigator when needed
+    func installRoot(identifier: RouteElementIdentifier, context: Any?, completion: () -> ()) {
+        if identifier == Screen.list.rawValue {
+            let listViewController = ListViewController(store: self.store)
+            self.window?.rootViewController = listViewController
+            completion()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
