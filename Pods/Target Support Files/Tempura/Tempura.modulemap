@@ -1,6 +1,0 @@
-framework module Tempura {
-  umbrella header "Tempura-umbrella.h"
-
-  export *
-  module * { export * }
-}

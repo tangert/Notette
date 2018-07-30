@@ -19,11 +19,9 @@ target 'Notette' do
 
 # Color analysis
 pod 'ColorThiefSwift', '>= 0.3.0'
-pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
-# State management
-pod 'Tempura'
-pod 'Katana'
+# FRP, Redux etc
+pod 'ReSwift'
 
 # UI Utils
 pod 'CollectionKit'
@@ -36,8 +34,5 @@ pod 'MusicTheorySwift'
 
 # Other utils
 pod 'DeepDiff'
-
-# Easy testing
-pod 'Nimble'
 
 end

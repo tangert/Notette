@@ -1,54 +1,33 @@
 PODS:
-  - ChameleonFramework/Default (2.1.0)
-  - ChameleonFramework/Swift (2.1.0):
-    - ChameleonFramework/Default
   - CollectionKit (1.2.1)
   - ColorThiefSwift (0.3.0)
   - DeepDiff (1.1.2)
   - FlexLayout (1.3.5)
   - Hero (1.1.0)
-  - Katana (1.0.0)
   - MusicTheorySwift (0.1)
-  - Nimble (7.0.3)
   - PinLayout (1.6.0)
-  - Tempura (1.4.0):
-    - Katana (< 1.1, >= 1.0)
+  - ReSwift (4.0.1)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - CollectionKit
   - ColorThiefSwift (>= 0.3.0)
   - DeepDiff
   - FlexLayout
   - Hero
-  - Katana
   - MusicTheorySwift
-  - Nimble
   - PinLayout
-  - Tempura
-
-EXTERNAL SOURCES:
-  ChameleonFramework:
-    :git: https://github.com/ViccAlexander/Chameleon.git
-
-CHECKOUT OPTIONS:
-  ChameleonFramework:
-    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
-    :git: https://github.com/ViccAlexander/Chameleon.git
+  - ReSwift
 
 SPEC CHECKSUMS:
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CollectionKit: 529f21630888b51dfad3e1aa7a2d08e8c28099cb
   ColorThiefSwift: bca6dee535214015763310b7dd316290840c87e3
   DeepDiff: 35c661301baeb2db083ea1b9af183daab6af1c05
   FlexLayout: 8cfa915850eab120c3d89c3b8b02e3aca96de554
   Hero: ce59e81c79390613d97b43da7179e2c5e1017e04
-  Katana: f45caad244d2f375d41068d94a7758b576940fd2
   MusicTheorySwift: 9e7f1bf66904190f82b34b9d36e09e296dde438b
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   PinLayout: a2bbe9057d49a1e326b13dc4fe8c14751f8c8844
-  Tempura: 98e088adb68637a14d51c0cbdc9714135413f0f1
+  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
 
-PODFILE CHECKSUM: 4ef6a9c826298f68eee0979e407515378dabac9a
+PODFILE CHECKSUM: 405b53b33aa0f210e9a02792fe25e0a024bdd31b
 
 COCOAPODS: 1.4.0

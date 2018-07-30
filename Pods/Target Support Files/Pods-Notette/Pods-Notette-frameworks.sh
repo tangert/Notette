@@ -134,30 +134,24 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Katana/Katana.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Tempura/Tempura.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Katana/Katana.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Tempura/Tempura.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

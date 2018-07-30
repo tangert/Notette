@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		0A8880B347D3C7F1A2E0D43B /* Pods_Notette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D118EFC2F10CC6B974A9E7 /* Pods_Notette.framework */; };
 		1A0096DCFCAECBFFB5BA7A29 /* Pods_NotetteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B342DBC6D7CBEC2EA0E2B5 /* Pods_NotetteUITests.framework */; };
+		3634F403210DF9B00051B7BA /* MainInterface_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F402210DF9B00051B7BA /* MainInterface_ViewController.swift */; };
+		3634F405210DF9BC0051B7BA /* MainInterface_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F404210DF9BC0051B7BA /* MainInterface_ViewModel.swift */; };
+		3634F40A210DFA3E0051B7BA /* MainInterface_Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F409210DFA3E0051B7BA /* MainInterface_Actions.swift */; };
+		3634F40C210DFA4B0051B7BA /* MainInterface_Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F40B210DFA4B0051B7BA /* MainInterface_Reducer.swift */; };
+		3634F416210F4D7B0051B7BA /* KeySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F415210F4D7B0051B7BA /* KeySelector.swift */; };
+		3634F419210F4EAD0051B7BA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F418210F4EAD0051B7BA /* CameraView.swift */; };
+		3634F41B210F4EB80051B7BA /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F41A210F4EB80051B7BA /* Keyboard.swift */; };
+		3634F41D210F4EC30051B7BA /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F41C210F4EC30051B7BA /* Palette.swift */; };
+		3634F420210F4EE00051B7BA /* PaletteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F41F210F4EE00051B7BA /* PaletteCell.swift */; };
+		3634F423210F50470051B7BA /* TopControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F422210F50470051B7BA /* TopControls.swift */; };
 		36D31353210D59E500B048DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31352210D59E500B048DD /* AppDelegate.swift */; };
 		36D31355210D59E500B048DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31354210D59E500B048DD /* ViewController.swift */; };
 		36D31358210D59E500B048DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D31356210D59E500B048DD /* Main.storyboard */; };
@@ -17,10 +27,6 @@
 		36D31368210D59E700B048DD /* NotetteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31367210D59E700B048DD /* NotetteTests.swift */; };
 		36D31373210D59E700B048DD /* NotetteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31372210D59E700B048DD /* NotetteUITests.swift */; };
 		36D31385210D5DD200B048DD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31384210D5DD200B048DD /* AppState.swift */; };
-		36D3138C210D5FBB00B048DD /* KeyboardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3138B210D5FBB00B048DD /* KeyboardActions.swift */; };
-		36D3138E210D5FCA00B048DD /* KeySelectorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3138D210D5FCA00B048DD /* KeySelectorActions.swift */; };
-		36D31390210D5FD400B048DD /* PaletteActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3138F210D5FD400B048DD /* PaletteActions.swift */; };
-		36D31393210D607900B048DD /* DependenciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31392210D607900B048DD /* DependenciesContainer.swift */; };
 		49AB06ECB458DCE6D702CD65 /* Pods_NotetteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9716DED40332BDD60A7FF /* Pods_NotetteTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +51,17 @@
 		0EA9716DED40332BDD60A7FF /* Pods_NotetteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotetteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A7A36EABEF25C711A25054 /* Pods-Notette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Notette/Pods-Notette.debug.xcconfig"; sourceTree = "<group>"; };
 		2D69A4BC8E4380CA349BA6D7 /* Pods-NotetteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotetteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotetteUITests/Pods-NotetteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3634F402210DF9B00051B7BA /* MainInterface_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_ViewController.swift; sourceTree = "<group>"; };
+		3634F404210DF9BC0051B7BA /* MainInterface_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_ViewModel.swift; sourceTree = "<group>"; };
+		3634F409210DFA3E0051B7BA /* MainInterface_Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_Actions.swift; sourceTree = "<group>"; };
+		3634F40B210DFA4B0051B7BA /* MainInterface_Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_Reducer.swift; sourceTree = "<group>"; };
+		3634F415210F4D7B0051B7BA /* KeySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySelector.swift; sourceTree = "<group>"; };
+		3634F417210F4DBC0051B7BA /* Description.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Description.md; sourceTree = "<group>"; };
+		3634F418210F4EAD0051B7BA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3634F41A210F4EB80051B7BA /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		3634F41C210F4EC30051B7BA /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		3634F41F210F4EE00051B7BA /* PaletteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell.swift; sourceTree = "<group>"; };
+		3634F422210F50470051B7BA /* TopControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControls.swift; sourceTree = "<group>"; };
 		36D3134F210D59E500B048DD /* Notette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D31352210D59E500B048DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D31354210D59E500B048DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +76,6 @@
 		36D31372210D59E700B048DD /* NotetteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotetteUITests.swift; sourceTree = "<group>"; };
 		36D31374210D59E700B048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36D31384210D5DD200B048DD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		36D3138B210D5FBB00B048DD /* KeyboardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardActions.swift; sourceTree = "<group>"; };
-		36D3138D210D5FCA00B048DD /* KeySelectorActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySelectorActions.swift; sourceTree = "<group>"; };
-		36D3138F210D5FD400B048DD /* PaletteActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteActions.swift; sourceTree = "<group>"; };
-		36D31392210D607900B048DD /* DependenciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainer.swift; sourceTree = "<group>"; };
 		46D118EFC2F10CC6B974A9E7 /* Pods_Notette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		769D1E454E042EFD9CB35BBE /* Pods-NotetteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotetteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotetteTests/Pods-NotetteTests.release.xcconfig"; sourceTree = "<group>"; };
 		914609571C80873D3644E812 /* Pods-NotetteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotetteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotetteTests/Pods-NotetteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +112,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3634F406210DFA120051B7BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3634F402210DF9B00051B7BA /* MainInterface_ViewController.swift */,
+				3634F404210DF9BC0051B7BA /* MainInterface_ViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3634F407210DFA1B0051B7BA /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				3634F409210DFA3E0051B7BA /* MainInterface_Actions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		3634F408210DFA210051B7BA /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				3634F40B210DFA4B0051B7BA /* MainInterface_Reducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		3634F413210F46460051B7BA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				36D31352210D59E500B048DD /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3634F414210F4D460051B7BA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3634F417210F4DBC0051B7BA /* Description.md */,
+				3634F421210F501B0051B7BA /* Top controls */,
+				36D3138A210D5F5900B048DD /* Camera view */,
+				36D31389210D5E0600B048DD /* Keyboard */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3634F421210F501B0051B7BA /* Top controls */ = {
+			isa = PBXGroup;
+			children = (
+				3634F422210F50470051B7BA /* TopControls.swift */,
+				3634F424210F50890051B7BA /* Subviews */,
+			);
+			path = "Top controls";
+			sourceTree = "<group>";
+		};
+		3634F424210F50890051B7BA /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				36D31388210D5DF900B048DD /* Key selector */,
+				36D31387210D5DEC00B048DD /* Palette */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		36D31346210D59E500B048DD = {
 			isa = PBXGroup;
 			children = (
@@ -124,16 +199,14 @@
 		36D31351210D59E500B048DD /* Notette */ = {
 			isa = PBXGroup;
 			children = (
-				36D31391210D605E00B048DD /* Dependencies */,
-				36D31386210D5DE400B048DD /* Components */,
+				36D31359210D59E700B048DD /* Assets.xcassets */,
+				36D3135E210D59E700B048DD /* Info.plist */,
+				3634F413210F46460051B7BA /* App */,
 				36D31381210D5D8400B048DD /* Store */,
 				36D31380210D5D7F00B048DD /* Features */,
-				36D31352210D59E500B048DD /* AppDelegate.swift */,
 				36D31354210D59E500B048DD /* ViewController.swift */,
 				36D31356210D59E500B048DD /* Main.storyboard */,
-				36D31359210D59E700B048DD /* Assets.xcassets */,
 				36D3135B210D59E700B048DD /* LaunchScreen.storyboard */,
-				36D3135E210D59E700B048DD /* Info.plist */,
 			);
 			path = Notette;
 			sourceTree = "<group>";
@@ -159,7 +232,6 @@
 		36D31380210D5D7F00B048DD /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				36D31383210D5DBB00B048DD /* Keyboard interface */,
 				36D31382210D5DA100B048DD /* Main interface */,
 			);
 			path = Features;
@@ -176,40 +248,27 @@
 		36D31382210D5DA100B048DD /* Main interface */ = {
 			isa = PBXGroup;
 			children = (
+				3634F414210F4D460051B7BA /* Components */,
+				3634F408210DFA210051B7BA /* Reducers */,
+				3634F407210DFA1B0051B7BA /* Actions */,
+				3634F406210DFA120051B7BA /* Views */,
 			);
 			path = "Main interface";
 			sourceTree = "<group>";
 		};
-		36D31383210D5DBB00B048DD /* Keyboard interface */ = {
+		36D31387210D5DEC00B048DD /* Palette */ = {
 			isa = PBXGroup;
 			children = (
+				3634F41C210F4EC30051B7BA /* Palette.swift */,
+				3634F41F210F4EE00051B7BA /* PaletteCell.swift */,
 			);
-			path = "Keyboard interface";
-			sourceTree = "<group>";
-		};
-		36D31386210D5DE400B048DD /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				36D3138A210D5F5900B048DD /* Camera view */,
-				36D31389210D5E0600B048DD /* Keyboard */,
-				36D31388210D5DF900B048DD /* Key selector */,
-				36D31387210D5DEC00B048DD /* Palette note */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		36D31387210D5DEC00B048DD /* Palette note */ = {
-			isa = PBXGroup;
-			children = (
-				36D3138F210D5FD400B048DD /* PaletteActions.swift */,
-			);
-			path = "Palette note";
+			path = Palette;
 			sourceTree = "<group>";
 		};
 		36D31388210D5DF900B048DD /* Key selector */ = {
 			isa = PBXGroup;
 			children = (
-				36D3138D210D5FCA00B048DD /* KeySelectorActions.swift */,
+				3634F415210F4D7B0051B7BA /* KeySelector.swift */,
 			);
 			path = "Key selector";
 			sourceTree = "<group>";
@@ -217,7 +276,7 @@
 		36D31389210D5E0600B048DD /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				36D3138B210D5FBB00B048DD /* KeyboardActions.swift */,
+				3634F41A210F4EB80051B7BA /* Keyboard.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -225,16 +284,9 @@
 		36D3138A210D5F5900B048DD /* Camera view */ = {
 			isa = PBXGroup;
 			children = (
+				3634F418210F4EAD0051B7BA /* CameraView.swift */,
 			);
 			path = "Camera view";
-			sourceTree = "<group>";
-		};
-		36D31391210D605E00B048DD /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				36D31392210D607900B048DD /* DependenciesContainer.swift */,
-			);
-			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		69EA0C98613122198DFE2117 /* Frameworks */ = {
@@ -403,31 +455,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Notette/Pods-Notette-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework",
 				"${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/Katana/Katana.framework",
 				"${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Tempura/Tempura.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ColorThiefSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeepDiff.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Katana.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MusicTheorySwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tempura.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -571,12 +617,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				36D31385210D5DD200B048DD /* AppState.swift in Sources */,
-				36D3138E210D5FCA00B048DD /* KeySelectorActions.swift in Sources */,
+				3634F41D210F4EC30051B7BA /* Palette.swift in Sources */,
+				3634F403210DF9B00051B7BA /* MainInterface_ViewController.swift in Sources */,
+				3634F41B210F4EB80051B7BA /* Keyboard.swift in Sources */,
+				3634F423210F50470051B7BA /* TopControls.swift in Sources */,
 				36D31355210D59E500B048DD /* ViewController.swift in Sources */,
-				36D31390210D5FD400B048DD /* PaletteActions.swift in Sources */,
-				36D3138C210D5FBB00B048DD /* KeyboardActions.swift in Sources */,
+				3634F419210F4EAD0051B7BA /* CameraView.swift in Sources */,
+				3634F405210DF9BC0051B7BA /* MainInterface_ViewModel.swift in Sources */,
+				3634F40C210DFA4B0051B7BA /* MainInterface_Reducer.swift in Sources */,
+				3634F40A210DFA3E0051B7BA /* MainInterface_Actions.swift in Sources */,
+				3634F416210F4D7B0051B7BA /* KeySelector.swift in Sources */,
 				36D31353210D59E500B048DD /* AppDelegate.swift in Sources */,
-				36D31393210D607900B048DD /* DependenciesContainer.swift in Sources */,
+				3634F420210F4EE00051B7BA /* PaletteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,7 +805,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = Notette/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.Notette;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -769,7 +824,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = Notette/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.Notette;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -786,7 +844,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = NotetteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -804,7 +866,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = NotetteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -821,7 +887,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = NotetteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -838,7 +908,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TWVWBQE3T;
 				INFOPLIST_FILE = NotetteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tangert.NotetteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
