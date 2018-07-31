@@ -8,22 +8,47 @@
 
 import Foundation
 import UIKit
-
-// Composed of:
-//      1. Key selector
-//      2. Palette
+import FlexLayout
+import PinLayout
+import CollectionKit
 
 class TopControls: UIView {
     
-    // MARK: Subviews
-    var keySelector = KeySelector()
-    var palette = Palette()
+    fileprivate let rootFlexContainer = UIView()
     
     init() {
         super.init(frame: .zero)
+        backgroundColor = .white
+        
+        // Declaritively lay out subviews
+        let keySelector = KeySelector()
+        
+        // Create the palette
+        let palette = Palette()
+        
+        rootFlexContainer.flex.direction(.row).justifyContent(.spaceBetween).define { (flex) in
+            
+            flex.addItem(keySelector)
+            flex.addItem(palette)
+        
+        }
+        
+        addSubview(rootFlexContainer)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Layout the flexbox container using PinLayout
+        // NOTE: Could be also layouted by setting directly rootFlexContainer.frame
+        rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
+        
+        // Then let the flexbox container layout itself
+        rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
+    
 }

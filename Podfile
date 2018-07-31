@@ -24,7 +24,7 @@ pod 'ColorThiefSwift', '>= 0.3.0'
 pod 'ReSwift'
 
 # UI Utils
-pod 'CollectionKit'
+pod "CollectionKit"
 pod 'Hero'
 pod 'FlexLayout'
 pod 'PinLayout'

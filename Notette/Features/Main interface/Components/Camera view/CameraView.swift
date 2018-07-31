@@ -12,4 +12,17 @@ import AVFoundation
 
 class CameraView: UIView {
     
+    init() {
+        super.init(frame: .zero)
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
 }

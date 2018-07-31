@@ -1,8 +1,8 @@
 //
-//  Keyboard.swift
+//  Palette.swift
 //  Notette
 //
-//  Created by Tyler Angert on 7/30/18.
+//  Created by Tyler Angert on 7/31/18.
 //  Copyright © 2018 Tyler Angert. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CollectionKit
 
-class Keyboard: CollectionView {
+class Palette: CollectionView {
     
     // MARK: Adding subviews
     init() {
@@ -28,7 +28,7 @@ class Keyboard: CollectionView {
             // from the current chosen scale
             button.backgroundColor = .red
             button.titleLabel?.text = "\(data)"
-            
+
             // Other setup
             button.layer.cornerRadius = 5
             button.clipsToBounds = true
@@ -37,13 +37,13 @@ class Keyboard: CollectionView {
             // Event handling
             button.tag = index
             button.addTarget(self, action: #selector(self.onClick(sender:)), for: UIControlEvents.touchUpInside)
-            
+    
         })
         
         let sizeProvider = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
             return CGSize(width: cellWidth, height: cellWidth)
         }
-        
+
         // Construct the provider
         let provider = CollectionProvider(
             dataProvider: dataProvider,
@@ -58,7 +58,6 @@ class Keyboard: CollectionView {
                                      alignContent: .start)
         
         self.provider = provider
-        
         self.frame = CGRect(x: 0,
                             y: 0,
                             width: (( cellWidth * 2) * (dataProvider.data.count)),
