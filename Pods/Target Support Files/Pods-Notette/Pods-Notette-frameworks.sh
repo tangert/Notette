@@ -136,7 +136,6 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework"
@@ -146,7 +145,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework"

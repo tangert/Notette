@@ -1,7 +1,6 @@
 PODS:
   - CollectionKit (1.2.1)
   - ColorThiefSwift (0.3.0)
-  - DeepDiff (1.1.2)
   - FlexLayout (1.3.5)
   - Hero (1.1.0)
   - MusicTheorySwift (0.1)
@@ -11,7 +10,6 @@ PODS:
 DEPENDENCIES:
   - CollectionKit
   - ColorThiefSwift (>= 0.3.0)
-  - DeepDiff
   - FlexLayout
   - Hero
   - MusicTheorySwift
@@ -21,13 +19,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CollectionKit: 529f21630888b51dfad3e1aa7a2d08e8c28099cb
   ColorThiefSwift: bca6dee535214015763310b7dd316290840c87e3
-  DeepDiff: 35c661301baeb2db083ea1b9af183daab6af1c05
   FlexLayout: 8cfa915850eab120c3d89c3b8b02e3aca96de554
   Hero: ce59e81c79390613d97b43da7179e2c5e1017e04
   MusicTheorySwift: 9e7f1bf66904190f82b34b9d36e09e296dde438b
   PinLayout: a2bbe9057d49a1e326b13dc4fe8c14751f8c8844
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
 
-PODFILE CHECKSUM: df02eb6f9a4aec5458e02830e550e475903baa6b
+PODFILE CHECKSUM: 9b41a7b5fdc1c367980d9911b2a3b08b322e8b61
 
 COCOAPODS: 1.4.0

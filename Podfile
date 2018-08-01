@@ -20,19 +20,16 @@ target 'Notette' do
 # Color analysis
 pod 'ColorThiefSwift', '>= 0.3.0'
 
-# FRP, Redux etc
+# State management
 pod 'ReSwift'
 
 # UI Utils
-pod "CollectionKit"
+pod 'CollectionKit'
 pod 'Hero'
 pod 'FlexLayout'
 pod 'PinLayout'
 
 # Music analysis
 pod 'MusicTheorySwift'
-
-# Other utils
-pod 'DeepDiff'
 
 end

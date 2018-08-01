@@ -14,6 +14,7 @@ import PinLayout
 class MainInterface_ViewModel: UIView {
     
     fileprivate let rootFlexContainer = UIView()
+    let cameraView = CameraView(frame: UIScreen.main.bounds)
     
     init() {
         super.init(frame: .zero)
@@ -22,16 +23,18 @@ class MainInterface_ViewModel: UIView {
         // Declaritively lay out subviews
         let topControls = TopControls()
         
-        // TODO: implement other view components
-        // let cameraView = CameraView()
-        // let keyboard = Keyboard()
+        // FIXME: Create full keyboard
+        let keyboard = Keyboard()
         
         rootFlexContainer.flex.direction(.column).justifyContent(.spaceAround).padding(20).define { (flex) in
             
             flex.addItem(topControls)
-            
         }
         
+        // Add camera view first
+        addSubview(cameraView)
+        
+        // Add overlaying UI
         addSubview(rootFlexContainer)
     }
     
@@ -40,7 +43,11 @@ class MainInterface_ViewModel: UIView {
         
         // Layout the flexbox container using PinLayout
         // NOTE: Could be also layouted by setting directly rootFlexContainer.frame
+        // The root container contains essentially the whole UI
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
+        
+        // The camera view lies underneath the UI flex container
+        cameraView.pin.top().horizontally()
         
         // Then let the flexbox container layout itself
         rootFlexContainer.flex.layout(mode: .adjustHeight)

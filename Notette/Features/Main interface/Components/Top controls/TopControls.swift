@@ -18,7 +18,7 @@ class TopControls: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = UIColor.clear
         
         // Declaritively lay out subviews
         let keySelector = KeySelector()

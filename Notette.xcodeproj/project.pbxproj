@@ -19,6 +19,7 @@
 		3634F423210F50470051B7BA /* TopControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F422210F50470051B7BA /* TopControls.swift */; };
 		3634F42E2110DE1F0051B7BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634F42D2110DE1F0051B7BA /* Main.storyboard */; };
 		3634F4312110E32F0051B7BA /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F4302110E32F0051B7BA /* Palette.swift */; };
+		3684493221110104009393FE /* AVFoundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684493121110104009393FE /* AVFoundation+Extensions.swift */; };
 		36D31353210D59E500B048DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31352210D59E500B048DD /* AppDelegate.swift */; };
 		36D3135A210D59E700B048DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D31359210D59E700B048DD /* Assets.xcassets */; };
 		36D3135D210D59E700B048DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D3135B210D59E700B048DD /* LaunchScreen.storyboard */; };
@@ -54,12 +55,12 @@
 		3634F409210DFA3E0051B7BA /* MainInterface_Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_Actions.swift; sourceTree = "<group>"; };
 		3634F40B210DFA4B0051B7BA /* MainInterface_Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterface_Reducer.swift; sourceTree = "<group>"; };
 		3634F415210F4D7B0051B7BA /* KeySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySelector.swift; sourceTree = "<group>"; };
-		3634F417210F4DBC0051B7BA /* Description.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Description.md; sourceTree = "<group>"; };
 		3634F418210F4EAD0051B7BA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		3634F41A210F4EB80051B7BA /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		3634F422210F50470051B7BA /* TopControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControls.swift; sourceTree = "<group>"; };
 		3634F42D2110DE1F0051B7BA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3634F4302110E32F0051B7BA /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		3684493121110104009393FE /* AVFoundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFoundation+Extensions.swift"; sourceTree = "<group>"; };
 		36D3134F210D59E500B048DD /* Notette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D31352210D59E500B048DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D31359210D59E700B048DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				36D31352210D59E500B048DD /* AppDelegate.swift */,
+				3684493121110104009393FE /* AVFoundation+Extensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -144,7 +146,6 @@
 		3634F414210F4D460051B7BA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3634F417210F4DBC0051B7BA /* Description.md */,
 				3634F421210F501B0051B7BA /* Top controls */,
 				36D3138A210D5F5900B048DD /* Camera view */,
 				36D31389210D5E0600B048DD /* Keyboard */,
@@ -435,7 +436,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Notette/Pods-Notette-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework",
 				"${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/MusicTheorySwift/MusicTheorySwift.framework",
@@ -446,7 +446,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ColorThiefSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeepDiff.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MusicTheorySwift.framework",
@@ -599,6 +598,7 @@
 				3634F403210DF9B00051B7BA /* MainInterface_ViewController.swift in Sources */,
 				3634F41B210F4EB80051B7BA /* Keyboard.swift in Sources */,
 				3634F423210F50470051B7BA /* TopControls.swift in Sources */,
+				3684493221110104009393FE /* AVFoundation+Extensions.swift in Sources */,
 				3634F419210F4EAD0051B7BA /* CameraView.swift in Sources */,
 				3634F405210DF9BC0051B7BA /* MainInterface_ViewModel.swift in Sources */,
 				3634F40C210DFA4B0051B7BA /* MainInterface_Reducer.swift in Sources */,

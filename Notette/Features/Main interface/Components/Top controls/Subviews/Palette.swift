@@ -15,7 +15,6 @@ class Palette: CollectionView {
     // MARK: Adding subviews
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
         
         // Size constants
         let cellWidth = 25
@@ -29,10 +28,13 @@ class Palette: CollectionView {
             button.backgroundColor = .red
             button.titleLabel?.text = "\(data)"
 
+            // shadows and stuff
+            
             // Other setup
             button.layer.cornerRadius = 5
             button.clipsToBounds = true
             button.titleLabel?.textAlignment = .center
+            
             
             // Event handling
             button.tag = index
