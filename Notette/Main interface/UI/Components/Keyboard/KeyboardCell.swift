@@ -8,11 +8,25 @@
 
 import Foundation
 import UIKit
+import ReSwift
 import ColorThiefSwift // Eventually move this out to a color processer
 
+// Key receives information from store
 class KeyboardCell: UIButton {
     
+    // MARK: Key state
+    enum KeyState {
+        case pressed
+        case notPressed
+    }
+    
+    // Vary this state based on the selected keys from the store
+    // When there's a new state, check against the index
+    
+    var keyState: KeyState = .notPressed
+    
     // MARK: Visual setup
+    // Turn the blur effect on / off based on state
     var blurEffectView: UIVisualEffectView!
     
     override init(frame: CGRect) {
@@ -25,7 +39,7 @@ class KeyboardCell: UIButton {
         layer.cornerRadius = CORNER_RADIUS
         
         // Background blur
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.layer.opacity = 0
         blurEffectView.clipsToBounds = true
@@ -35,115 +49,99 @@ class KeyboardCell: UIButton {
         // Insert the blur and shadow all the way behind
         insertSubview(blurEffectView, at: 0)
         
-        self.addTarget(self, action: #selector(touchUpOutside), for: .touchUpOutside)
+        // Avoid conflict with parent view
+        isUserInteractionEnabled = false
     }
     
-    @objc func touchUpOutside() {
-        print("touch up outside")
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        guard let touch = touches.first, self.bounds.contains(touch.location(in: self))  else {
-            return
-        }
-        
-        print("touchesBegan") // Replace by your own code
-        self.blurEffectView.layer.opacity = 1
-
-        
-//        if let touch = touches.first {
-//            if touch.view == self {
-//               print("Dragging in!")
-//                print(touch.location(in: self).x)
-//
-//                self.blurEffectView.layer.opacity = 1
-//
-//
-//            } else {
-//
-//                self.blurEffectView.layer.opacity = 0
-//
-//                return
-//            }
-//
-//        }
-    }
-    
-    func testTouches(touches: NSSet!) {
-        // Get the first touch and its location in this view controller's view coordinate system
-        let touch = touches.allObjects[0] as! UITouch
-        let touchLocation = touch.locationInView(self.view)
-        
-        for obstacleView in obstacleViews {
-            // Convert the location of the obstacle view to this view controller's view coordinate system
-            let obstacleViewFrame = self.view.convertRect(obstacleView.frame, fromView: obstacleView.superview)
-            
-            // Check if the touch is inside the obstacle view
-            if CGRectContainsPoint(obstacleViewFrame, touchLocation) {
-                println("Game over!")
-            }
-        }
-    }
-    
-//    var wasInButton = false
-//
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let t = touches.first {
-//            let point = t.location(in: self)
-//            // moving in to the button
-//            if frame.contains(point) && !wasInButton {
-//                // trigger animation
-//                UIView.animate(withDuration: 0.2) {
-//                    self.blurEffectView.layer.opacity = 1
-//                }
-//                wasInButton = true
-//            }
-//            // moving out of the button
-//            if !frame.contains(point) && wasInButton {
-//                // trigger animation
-//                UIView.animate(withDuration: 0.2) {
-//                    self.blurEffectView.layer.opacity = 0
-//                }
-//                wasInButton = false
-//            }
-//        }
-//    }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIView.animate(withDuration: 0.2) {
-            self.blurEffectView.layer.opacity = 0
-        }
-    }
+    // MARK: Fill the cell with data
     
     init(data: ColorNote) {
         super.init(frame: .zero)
         populate(data: data)
     }
     
+    func populate(data: ColorNote) {
+        // Depending on the data, create a sound relevant to the color bucket it belongs in
+        UIView.animate(withDuration: 0.25) {
+            self.backgroundColor = data.color
+        }
+    }
+    
+    // MARK: Pressing interactions from parent view
+    func pressed() -> Bool {
+        if keyState != .pressed {
+            keyState = .pressed
+            DispatchQueue.main.async {
+                self.setNeedsDisplay()
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func released() -> Bool {
+        if keyState != .notPressed {
+            keyState = .notPressed
+            DispatchQueue.main.async {
+                self.setNeedsDisplay()
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: Calculates the most relevant note for each cell based on the average color underneath it
     func calculateClosestColorBucket() -> ColorNote {
+        
+        
         //1. Grab the image context below the current cell from the UIview image
         let imageContext = getImageContext()
         
+        
+        // Try using sub image
+        
+        // the x and y are based on the current position of the button in the super view
+//        let fromRect=CGRect(x:0,y:0,width:mainStore.state.keyBoardCellWidth,height:mainStore.state.keyBoardCellWidth)
+//        let drawImage = image.cgImage!.cropping(to: fromRect)
+//        let bimage = UIImage(cgImage: drawImage!)
+        
         //2. Obtain the average color of that image from ColorThief
-        let color = ColorThief.getColor(from: imageContext)
+        let colors = ColorThief.getPalette(from: imageContext, colorCount: 3)
+        let color = colors![0]
+        print(color)
         
         //3. Loop through all of the current colors and obtain the closest color
-        var currentMin = Int.max
+        
+        var currentMin = Float.greatestFiniteMagnitude
         var minBucket: ColorNote!
         
+        // For each color note pair
         for cn in mainStore.state.colorNoteData {
             
+            // Grab the rgb values from the current palette
             let colRgb = cn.color.rgb()
+            print("palette rgb: \(colRgb)")
+            print("cell rgb: \(color)")
+            print("\n")
+            // Calculate the r,g,b differences between the selected palette color
+            // And the average color below the current cell
             
-            let rDif = Int(color!.r) - colRgb!.r
-            let gDif = Int(color!.g) - colRgb!.g
-            let bDif = Int(color!.b) - colRgb!.b
+            let rDif = Int(color.r) - colRgb!.r
+            let gDif = Int(color.g) - colRgb!.g
+            let bDif = Int(color.b) - colRgb!.b
             
-            let totalDif = rDif + gDif + bDif
+            let pctDiffRed   = Float(rDif)   / 255
+            let pctDiffGreen = Float(gDif) / 255
+            let pctDiffBlue   = Float(bDif)  / 255
             
-            if totalDif < currentMin {
-                currentMin = totalDif
+            let pctDif = (pctDiffRed + pctDiffGreen + pctDiffBlue) / 3 * 100
+            
+            print("Difference: \(pctDif)")
+            
+            if pctDif < currentMin {
+                currentMin = pctDif
                 minBucket = cn
             }
         }
@@ -152,24 +150,15 @@ class KeyboardCell: UIButton {
         return minBucket
     }
     
+    // Helper method to retrieve the image below a UIView
     func getImageContext() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
+        
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let imageContext = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return imageContext!
     }
-    
-    // MARK: Population
-    func populate(data: ColorNote) {
-        // Depending on the data, create a sound relevant to the color bucket it belongs in
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundColor = data.color
-        }
-    }
-    
-    // MARK: User interactions
-    // FIXME: create touch up inside interactions and delegate for manager?
     
     override func layoutSubviews() {
         super.layoutSubviews()

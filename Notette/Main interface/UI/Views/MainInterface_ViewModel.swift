@@ -27,12 +27,9 @@ class MainInterface_ViewModel: UIView {
         topControls = TopControls()
         keyboard = Keyboard()
         
-        
-        print(keyboard.frame)
-
-        rootFlexContainer.flex.direction(.column).justifyContent(.spaceAround).padding(20).define { (flex) in
+        rootFlexContainer.flex.direction(.column).padding(20).define { (flex) in
             flex.addItem(topControls)
-            flex.addItem(keyboard)
+            flex.addItem(keyboard).marginTop(-20)
         }
         
         addSubview(cameraView)              // Add camera view first

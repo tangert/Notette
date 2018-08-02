@@ -10,6 +10,13 @@ import Foundation
 import ReSwift
 
  // MARK: User actions
+struct touchKeyboardCells: Action {
+    var type = "TOUCH_KEYBOARD_CELLS"
+    var cells: [Int]
+    init(cells: [Int]) {
+        self.cells = cells
+    }
+}
 
 /*
  1. Select key
@@ -21,12 +28,17 @@ import ReSwift
 
 // MARK: Internal actions
 struct setNewColorPalette: Action {
-    
     var type = "SET_NEW_COLOR_PALETTE"
-    
     var colors: [UIColor]
-    
     init(colors: [UIColor]) {
         self.colors = colors
+    }
+}
+
+struct setLastFrame: Action {
+    var type = "SET_LAST_FRAME"
+    var frame: UIImage
+    init(frame: UIImage) {
+        self.frame = frame
     }
 }

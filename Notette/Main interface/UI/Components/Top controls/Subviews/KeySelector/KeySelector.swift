@@ -20,12 +20,12 @@ class KeySelector: UIView {
         super.init(frame: .zero)
         
         // Scale Type
-        scaleTypeSelector.backgroundColor = UIColor.green
+        scaleTypeSelector.backgroundColor = UIColor.clear
         scaleTypeSelector.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
         addSubview(scaleTypeSelector)
         
         // Key
-        keySelector.backgroundColor = UIColor.red
+        keySelector.backgroundColor = UIColor.clear
         keySelector.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
         addSubview(keySelector)
     }

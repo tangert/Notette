@@ -163,10 +163,11 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         // Fires once every half second or half second
+        // color processing
+        self.capturedImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
+        mainStore.dispatch(setLastFrame(frame: self.capturedImage))
+
         if canCapture {
-            
-            // color processing
-            self.capturedImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
             
             DispatchQueue.global(qos: .default).async {
                 
@@ -176,6 +177,8 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
                 
                 let currentPalette = colors.map { $0.makeUIColor() }
+                
+                // Set the new color palette
                 mainStore.dispatch(setNewColorPalette(colors: currentPalette))
                 
             }

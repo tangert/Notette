@@ -48,8 +48,6 @@ class PaletteCell: UIButton {
         
         // Insert the blur and shadow all the way behind
         insertSubview(blurEffectView, at: 0)
-
-
     }
     
     init(data: ColorNote) {

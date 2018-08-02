@@ -16,6 +16,10 @@ func MainInteface_Reducer(action: Action, state: AppState?) -> AppState {
     switch action {
     case let a as setNewColorPalette:
         state.colors = a.colors
+    case let a as touchKeyboardCells:
+        state.selectedKeyboardCells = a.cells
+    case let a as setLastFrame:
+        state.lastFrame = a.frame
     default:
         return state
     }

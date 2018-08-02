@@ -21,9 +21,11 @@
 		3684493221110104009393FE /* AVFoundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684493121110104009393FE /* AVFoundation+Extensions.swift */; };
 		36844935211153E8009393FE /* ColorNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36844934211153E8009393FE /* ColorNote.swift */; };
 		3684493E2111EE08009393FE /* FrameExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684493D2111EE08009393FE /* FrameExtractor.swift */; };
-		368449412111F169009393FE /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449402111F169009393FE /* UIView+Extensions.swift */; };
+		368449412111F169009393FE /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449402111F169009393FE /* UIImage+Extensions.swift */; };
 		368449432112079E009393FE /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449422112079E009393FE /* Array+Extensions.swift */; };
 		3684494521120F6A009393FE /* PaletteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684494421120F6A009393FE /* PaletteCell.swift */; };
+		368AE460211348FD00F31138 /* TouchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AE45F211348FD00F31138 /* TouchHandler.swift */; };
+		368AE4652113974700F31138 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AE4642113974700F31138 /* UIView+Extensions.swift */; };
 		369D20532112A90300E5DE31 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369D20522112A90300E5DE31 /* UIColor+Extensions.swift */; };
 		369D20552112B8DD00E5DE31 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369D20542112B8DD00E5DE31 /* KeyboardCell.swift */; };
 		36D31353210D59E500B048DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31352210D59E500B048DD /* AppDelegate.swift */; };
@@ -68,9 +70,11 @@
 		3684493121110104009393FE /* AVFoundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFoundation+Extensions.swift"; sourceTree = "<group>"; };
 		36844934211153E8009393FE /* ColorNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorNote.swift; sourceTree = "<group>"; };
 		3684493D2111EE08009393FE /* FrameExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameExtractor.swift; sourceTree = "<group>"; };
-		368449402111F169009393FE /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		368449402111F169009393FE /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		368449422112079E009393FE /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		3684494421120F6A009393FE /* PaletteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell.swift; sourceTree = "<group>"; };
+		368AE45F211348FD00F31138 /* TouchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchHandler.swift; sourceTree = "<group>"; };
+		368AE4642113974700F31138 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		369D20522112A90300E5DE31 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		369D20542112B8DD00E5DE31 /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		36D3134F210D59E500B048DD /* Notette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notette.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +155,8 @@
 			children = (
 				36D31352210D59E500B048DD /* AppDelegate.swift */,
 				3684493121110104009393FE /* AVFoundation+Extensions.swift */,
-				368449402111F169009393FE /* UIView+Extensions.swift */,
+				368449402111F169009393FE /* UIImage+Extensions.swift */,
+				368AE4642113974700F31138 /* UIView+Extensions.swift */,
 				368449422112079E009393FE /* Array+Extensions.swift */,
 				369D20522112A90300E5DE31 /* UIColor+Extensions.swift */,
 			);
@@ -307,6 +312,7 @@
 			children = (
 				3634F41A210F4EB80051B7BA /* Keyboard.swift */,
 				369D20542112B8DD00E5DE31 /* KeyboardCell.swift */,
+				368AE45F211348FD00F31138 /* TouchHandler.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -643,8 +649,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368AE4652113974700F31138 /* UIView+Extensions.swift in Sources */,
 				36D31385210D5DD200B048DD /* AppState.swift in Sources */,
 				3634F4312110E32F0051B7BA /* Palette.swift in Sources */,
+				368AE460211348FD00F31138 /* TouchHandler.swift in Sources */,
 				3684494521120F6A009393FE /* PaletteCell.swift in Sources */,
 				3634F403210DF9B00051B7BA /* MainInterface_ViewController.swift in Sources */,
 				3634F41B210F4EB80051B7BA /* Keyboard.swift in Sources */,
@@ -659,7 +667,7 @@
 				3634F40C210DFA4B0051B7BA /* MainInterface_Reducer.swift in Sources */,
 				368449432112079E009393FE /* Array+Extensions.swift in Sources */,
 				3634F40A210DFA3E0051B7BA /* MainInterface_Actions.swift in Sources */,
-				368449412111F169009393FE /* UIView+Extensions.swift in Sources */,
+				368449412111F169009393FE /* UIImage+Extensions.swift in Sources */,
 				3634F416210F4D7B0051B7BA /* KeySelector.swift in Sources */,
 				36D31353210D59E500B048DD /* AppDelegate.swift in Sources */,
 			);

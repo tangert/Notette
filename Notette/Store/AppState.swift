@@ -49,12 +49,18 @@ struct AppState: StateType {
         }
     }
     
+    // Image data
+    var lastFrame: UIImage = UIImage()
+    var keyBoardCellWidth: Int = 35
+    
     // UI relevant controls
     var keyboardIsOn: Bool = false
     var cameraIsOn: Bool = false
     var userIsInteractingWithKeyboard: Bool = false
     
     // TODO: selected notes / filtering
+    // Just store the indices
+    var selectedKeyboardCells = [Int]()
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {
