@@ -18,7 +18,6 @@ class KeySelector: UIView {
     // MARK: Adding subviews
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
         
         // Scale Type
         scaleTypeSelector.backgroundColor = UIColor.green

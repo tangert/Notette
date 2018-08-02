@@ -15,20 +15,39 @@ struct AppState: StateType {
     // Select these two independently from the UI
     var scaleType: ScaleType = ScaleType.major
     var key: NoteType = NoteType.c
+    var octave: Int = 4
     
     // Calculate the scale
     // Default to C Major, read only
     var currentScale: Scale {
         get {
-            return Scale(type: self.scaleType, key: self.key)
+            return Scale(type: scaleType, key: key)
         }
     }
     
-    var octave: Int = 4
+    var notes: [Note] {
+        get {
+            
+            var original = currentScale.notes(octave: octave)
+            
+            // The scale doesn't include 8 notes, just the first 7
+            // Have to add on the ending note in the octave
+            let endingOctave = Note(type: key, octave: octave+1)
+            original.append(endingOctave)
+            
+            return original
+        }
+    }
     
     // Array of colors
     // Initialize with all white
-    var palette: [UIColor] = [UIColor].init(repeating: UIColor.white, count: 8)
+    var colors: [UIColor] = [UIColor].init(repeating: UIColor.clear, count: 8)
+    
+    var colorNoteData: [ColorNote]  {
+        get {
+            return zip(colors, notes).map { ColorNote(color: $0, note: $1) }
+        }
+    }
     
     // UI relevant controls
     var keyboardIsOn: Bool = false
@@ -37,3 +56,10 @@ struct AppState: StateType {
     
     // TODO: selected notes / filtering
 }
+
+func appReducer(action: Action, state: AppState?) -> AppState {
+    return AppState()
+}
+
+// Finally, define the store
+var mainStore = Store<AppState>(reducer: MainInteface_Reducer, state: nil)

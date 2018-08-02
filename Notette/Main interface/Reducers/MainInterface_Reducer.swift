@@ -9,15 +9,16 @@
 import Foundation
 import ReSwift
 
-func MainInterface_Reducer(action: Action, state: AppState) -> AppState {
-    
+func MainInteface_Reducer(action: Action, state: AppState?) -> AppState {
+
     var state = state ?? AppState()
     
     switch action {
+    case let a as setNewColorPalette:
+        state.colors = a.colors
     default:
         return state
     }
     
     return state
-    
 }

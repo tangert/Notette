@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ReSwift
 
 class MainInterface_ViewController: UIViewController {
     
@@ -18,5 +19,18 @@ class MainInterface_ViewController: UIViewController {
     override func loadView() {
         view = MainInterface_ViewModel()
     }
+    
+    override func viewDidLoad() {
+        mainStore.subscribe(self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        mainStore.unsubscribe(self)
+    }
+}
 
+extension MainInterface_ViewController: StoreSubscriber {
+    func newState(state: AppState) {
+        self.mainView.gotNewState(state: state)
+    }
 }

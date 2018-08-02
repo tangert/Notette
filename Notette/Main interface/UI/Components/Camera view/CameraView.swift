@@ -11,6 +11,8 @@ import UIKit
 import AVFoundation
 import ColorThiefSwift
 
+fileprivate let CAPTURE_RATE: TimeInterval = 0.75
+
 class CameraView: UIView {
     
     var capturedImage: UIImage!
@@ -54,7 +56,7 @@ class CameraView: UIView {
         super.init(frame: frame)
         
         // MARK: timer to capture frames every second
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.grabFrame), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: CAPTURE_RATE, target: self, selector: #selector(self.grabFrame), userInfo: nil, repeats: true)
         commonInit()
     }
     
@@ -150,19 +152,17 @@ protocol FrameExtractorDelegate: class {
     func captured(image: UIImage)
 }
 
+// Create a frame capture object that is the delegate
+// MARK: Capture delegate
+
 extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        
-    }
+    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {}
     
+    // FIXME: Create a frame capture delegate that does all the relevant processing
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
-        
-        // Here you collect each frame and process it
-        let ts:CMTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-        
+        // Fires once every half second or half second
         if canCapture {
             
             // color processing
@@ -170,14 +170,13 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
             
             DispatchQueue.global(qos: .default).async {
                 
-                guard let colors = ColorThief.getPalette(from: self.capturedImage, colorCount: 8) else {
+                guard let colors = ColorThief.getPalette(from: self.capturedImage, colorCount: 9) else {
                     print("Couldn't get it")
                     return
                 }
                 
                 let currentPalette = colors.map { $0.makeUIColor() }
-                
-                // Send over current palette to store
+                mainStore.dispatch(setNewColorPalette(colors: currentPalette))
                 
             }
             

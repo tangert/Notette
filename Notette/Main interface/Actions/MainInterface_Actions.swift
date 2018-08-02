@@ -9,19 +9,24 @@
 import Foundation
 import ReSwift
 
-// Actions:
+ // MARK: User actions
 
 /*
- Example:
- 
- // User actions
- 
  1. Select key
  2. select scale
  3. Turn keyboard on / off
  4. Touch key
  5. filter palette
- 
- // done by algos:
- 6. calculate palette
  */
+
+// MARK: Internal actions
+struct setNewColorPalette: Action {
+    
+    var type = "SET_NEW_COLOR_PALETTE"
+    
+    var colors: [UIColor]
+    
+    init(colors: [UIColor]) {
+        self.colors = colors
+    }
+}

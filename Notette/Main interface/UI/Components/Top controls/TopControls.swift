@@ -1,8 +1,8 @@
 //
-//  MainInterface_ViewModel.swift
+//  TopControls.swift
 //  Notette
 //
-//  Created by Tyler Angert on 7/29/18.
+//  Created by Tyler Angert on 7/30/18.
 //  Copyright © 2018 Tyler Angert. All rights reserved.
 //
 
@@ -10,31 +10,30 @@ import Foundation
 import UIKit
 import FlexLayout
 import PinLayout
+import CollectionKit
 
-class MainInterface_ViewModel: UIView {
+class TopControls: UIView {
     
     fileprivate let rootFlexContainer = UIView()
-    let cameraView = CameraView(frame: UIScreen.main.bounds)
+    var palette: Palette!
+    var keySelector: KeySelector!
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = UIColor.clear
         
         // Declaritively lay out subviews
-        let topControls = TopControls()
+        keySelector = KeySelector()
+        palette = Palette()
         
-        // FIXME: Create full keyboard
-        let keyboard = Keyboard()
-        
-        rootFlexContainer.flex.direction(.column).justifyContent(.spaceAround).padding(20).define { (flex) in
+        // Add them to the subviews
+        rootFlexContainer.flex.direction(.row).justifyContent(.spaceBetween).define { (flex) in
             
-            flex.addItem(topControls)
+            flex.addItem(keySelector)
+            flex.addItem(palette)
+    
         }
         
-        // Add camera view first
-        addSubview(cameraView)
-        
-        // Add overlaying UI
         addSubview(rootFlexContainer)
     }
     
@@ -43,11 +42,7 @@ class MainInterface_ViewModel: UIView {
         
         // Layout the flexbox container using PinLayout
         // NOTE: Could be also layouted by setting directly rootFlexContainer.frame
-        // The root container contains essentially the whole UI
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
-        
-        // The camera view lies underneath the UI flex container
-        cameraView.pin.top().horizontally()
         
         // Then let the flexbox container layout itself
         rootFlexContainer.flex.layout(mode: .adjustHeight)
@@ -56,4 +51,5 @@ class MainInterface_ViewModel: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
 }
