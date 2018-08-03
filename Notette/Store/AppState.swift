@@ -13,8 +13,8 @@ import MusicTheorySwift
 struct AppState: StateType {
     
     // Select these two independently from the UI
-    var scaleType: ScaleType = ScaleType.major
     var key: NoteType = NoteType.c
+    var scaleType: ScaleType = ScaleType.major
     var octave: Int = 4
     
     // Calculate the scale
@@ -25,24 +25,21 @@ struct AppState: StateType {
         }
     }
     
+    // The scale doesn't include 8 notes, just the first 7
+    // Have to add on the ending note in the octave
     var notes: [Note] {
         get {
-            
-            var original = currentScale.notes(octave: octave)
-            
-            // The scale doesn't include 8 notes, just the first 7
-            // Have to add on the ending note in the octave
+            var first7Notes = currentScale.notes(octave: octave)
             let endingOctave = Note(type: key, octave: octave+1)
-            original.append(endingOctave)
-            
-            return original
+            first7Notes.append(endingOctave)
+            return first7Notes
         }
     }
     
-    // Array of colors
-    // Initialize with all white
+    // Current frame palette data
     var colors: [UIColor] = [UIColor].init(repeating: UIColor.clear, count: 8)
     
+    // Combined color / note data
     var colorNoteData: [ColorNote]  {
         get {
             return zip(colors, notes).map { ColorNote(color: $0, note: $1) }
@@ -51,12 +48,10 @@ struct AppState: StateType {
     
     // Image data
     var lastFrame: UIImage = UIImage()
-    var keyBoardCellWidth: Int = 35
     
     // UI relevant controls
     var keyboardIsOn: Bool = false
-    var cameraIsOn: Bool = false
-    var userIsInteractingWithKeyboard: Bool = false
+    var keyBoardCellWidth: Int = 35
     
     // TODO: selected notes / filtering
     // Just store the indices

@@ -13,11 +13,13 @@ import ColorThiefSwift
 
 fileprivate let CAPTURE_RATE: TimeInterval = 0.75
 
-class CameraView: UIView {
+class CameraView: UIView, Capturable {
     
-    var capturedImage: UIImage!
-    var timer: Timer!
-    var canCapture = false
+    // MARK: Delegate
+    var frameCaptureDelegate: FrameCaptureDelegate?
+    
+    // MARK: Lazy var initialization
+    // Only loaded when needed to save memory
     
     private lazy var videoDataOutput: AVCaptureVideoDataOutput = {
         let v = AVCaptureVideoDataOutput()
@@ -55,8 +57,9 @@ class CameraView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // MARK: timer to capture frames every second
-        timer = Timer.scheduledTimer(timeInterval: CAPTURE_RATE, target: self, selector: #selector(self.grabFrame), userInfo: nil, repeats: true)
+        // MARK: initialize delegate
+        let _ = FrameCaptureHandler(delegateTarget: self)
+        
         commonInit()
     }
     
@@ -105,51 +108,7 @@ class CameraView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
-    @objc func grabFrame() {
-        canCapture = true
-    }
-    
-    func imageFromSampleBuffer(sampleBuffer : CMSampleBuffer) -> UIImage
-    {
-        // Get a CMSampleBuffer's Core Video image buffer for the media data
-        let  imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-        // Lock the base address of the pixel buffer
-        CVPixelBufferLockBaseAddress(imageBuffer!, CVPixelBufferLockFlags.readOnly);
-        
-        
-        // Get the number of bytes per row for the pixel buffer
-        let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer!);
-        
-        // Get the number of bytes per row for the pixel buffer
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer!);
-        // Get the pixel buffer width and height
-        let width = CVPixelBufferGetWidth(imageBuffer!);
-        let height = CVPixelBufferGetHeight(imageBuffer!);
-        
-        // Create a device-dependent RGB color space
-        let colorSpace = CGColorSpaceCreateDeviceRGB();
-        
-        // Create a bitmap graphics context with the sample buffer data
-        var bitmapInfo: UInt32 = CGBitmapInfo.byteOrder32Little.rawValue
-        bitmapInfo |= CGImageAlphaInfo.premultipliedFirst.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
-        //let bitmapInfo: UInt32 = CGBitmapInfo.alphaInfoMask.rawValue
-        let context = CGContext.init(data: baseAddress, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo)
-        // Create a Quartz image from the pixel data in the bitmap graphics context
-        let quartzImage = context?.makeImage();
-        // Unlock the pixel buffer
-        CVPixelBufferUnlockBaseAddress(imageBuffer!, CVPixelBufferLockFlags.readOnly);
-        
-        // Create an image object from the Quartz image
-        let image = UIImage.init(cgImage: quartzImage!);
-        
-        return (image);
-    }
 
-}
-
-protocol FrameExtractorDelegate: class {
-    func captured(image: UIImage)
 }
 
 // Create a frame capture object that is the delegate
@@ -159,33 +118,8 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {}
     
-    // FIXME: Create a frame capture delegate that does all the relevant processing
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        // Fires once every half second or half second
-        // color processing
-        self.capturedImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
-        mainStore.dispatch(setLastFrame(frame: self.capturedImage))
-
-        if canCapture {
-            
-            DispatchQueue.global(qos: .default).async {
-                
-                guard let colors = ColorThief.getPalette(from: self.capturedImage, colorCount: 9) else {
-                    print("Couldn't get it")
-                    return
-                }
-                
-                let currentPalette = colors.map { $0.makeUIColor() }
-                
-                // Set the new color palette
-                mainStore.dispatch(setNewColorPalette(colors: currentPalette))
-                
-            }
-            
-            canCapture = false
-        }
-        
+        self.frameCaptureDelegate?.didCaptureBuffer(buffer: sampleBuffer)
     }
     
 }

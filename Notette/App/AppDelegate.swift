@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set the root view controller programatically
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = MainInterface_ViewController()
+        window?.rootViewController = MainInterface_Container()
         
         return true
     }

@@ -12,7 +12,7 @@ import FlexLayout
 import PinLayout
 import ReSwift
 
-class MainInterface_ViewModel: UIView {
+class MainInterface_ContainerModel: UIView {
     
     fileprivate let rootFlexContainer = UIView()
     fileprivate let cameraView = CameraView(frame: UIScreen.main.bounds)

@@ -76,44 +76,31 @@ class TouchHandler: NSObject, TouchDelegate {
             
             let cell = delegateTarget.mainView.cell(at: key) as! KeyboardCell
             
-//            UIGraphicsBeginImageContextWithOptions(self.delegateTarget.mainView.bounds.size, true, 5)
-//            cell.layer.render(in: UIGraphicsGetCurrentContext()!)
-//            let viewImage = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-//
-//            cell.setBackgroundImage(viewImage, for: .normal)
+            // MARK: this whole thing gets the subset of the image relevant to the cell, then
+            // gets the average color,
+            // then gets the color in the palette it's closest to
+            // then returns the most relevant note
             
             let globalPos = cell.globalPoint!
-
-            // grab color at that point
-//            let colorAtPoint = currentFrame.getPixelColor(globalPos)
-            
 
             let w = CGFloat(mainStore.state.keyBoardCellWidth)
             
             let imageViewScale = max(currentFrame.size.width / UIScreen.main.bounds.width,
                                      currentFrame.size.height / UIScreen.main.bounds.height)
-            
-            // Scale cropRect to handle images larger than shown-on-screen size
-//            let cropZone = CGRect(x:cell.globalFrame!.origin.x * imageViewScale,
-//                                  y:cell.globalFrame!.origin.y * imageViewScale,
-//                                  width:cell.globalFrame!.size.width * imageViewScale,
-//                                  height:cell.globalFrame!.size.height * imageViewScale)
-//
-            let cropZone = CGRect(x: (globalPos.x - w) * imageViewScale,
+
+            let cropZone = CGRect(x: (globalPos.x - (2*w)) * imageViewScale,
                                   y: globalPos.y * imageViewScale,
                                   width: w * imageViewScale,
                                   height: w * imageViewScale)
 
-            print("From rect: \(cropZone)")
             let drawImage = currentFrame.cgImage!.cropping(to: cropZone)
             
             if let d = drawImage {
+                
                 let bimage = UIImage(cgImage: drawImage!)
                 let avg = ColorThief.getColor(from: bimage)
-                cell.backgroundColor = avg?.makeUIColor()
-//                cell.setBackgroundImage(bimage, for: .normal)
-
+                let cn = cell.calculateClosestColorBucket(color: avg!)
+                
             }
             
             UIView.animate(withDuration: 0.15) {
@@ -125,31 +112,13 @@ class TouchHandler: NSObject, TouchDelegate {
             let cell = delegateTarget.mainView.cell(at: key) as! KeyboardCell
             UIView.animate(withDuration: 0.75) {
                 cell.blurEffectView.layer.opacity = 0
+                cell.backgroundColor = UIColor.clear
             }
         }
         
         // TODO:
         // Draw mode with chords
         
-    }
-    
-    func imageWithImage(image: UIImage, croppedTo rect: CGRect) -> UIImage {
-        
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        let drawRect = CGRect(x: -rect.origin.x, y: -rect.origin.y,
-                              width: image.size.width, height: image.size.height)
-        
-        context?.clip(to: CGRect(x: 0, y: 0,
-                                 width: rect.size.width, height: rect.size.height))
-        
-        image.draw(in: drawRect)
-        
-        let subImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        return subImage!
     }
     
     // Released
@@ -160,6 +129,8 @@ class TouchHandler: NSObject, TouchDelegate {
             
             UIView.animate(withDuration: 0.75) {
                 cell.blurEffectView.layer.opacity = 0
+                cell.backgroundColor = UIColor.clear
+
             }
         }
 
@@ -172,6 +143,8 @@ class TouchHandler: NSObject, TouchDelegate {
             
             UIView.animate(withDuration: 0.75) {
                 cell.blurEffectView.layer.opacity = 0
+                cell.backgroundColor = UIColor.clear
+
             }
         }
     }

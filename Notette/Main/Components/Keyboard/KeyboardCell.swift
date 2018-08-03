@@ -93,55 +93,25 @@ class KeyboardCell: UIButton {
     }
     
     // MARK: Calculates the most relevant note for each cell based on the average color underneath it
-    func calculateClosestColorBucket() -> ColorNote {
+    // This should be in a color comparison object as a static function
+    // or be dumb and take in a reference color, then a color palette as input
+    
+    func calculateClosestColorBucket(color: MMCQ.Color) -> ColorNote {
         
-        
-        //1. Grab the image context below the current cell from the UIview image
-        let imageContext = getImageContext()
-        
-        
-        // Try using sub image
-        
-        // the x and y are based on the current position of the button in the super view
-//        let fromRect=CGRect(x:0,y:0,width:mainStore.state.keyBoardCellWidth,height:mainStore.state.keyBoardCellWidth)
-//        let drawImage = image.cgImage!.cropping(to: fromRect)
-//        let bimage = UIImage(cgImage: drawImage!)
-        
-        //2. Obtain the average color of that image from ColorThief
-        let colors = ColorThief.getPalette(from: imageContext, colorCount: 3)
-        let color = colors![0]
-        print(color)
-        
-        //3. Loop through all of the current colors and obtain the closest color
-        
-        var currentMin = Float.greatestFiniteMagnitude
+        var currentMin = Double.greatestFiniteMagnitude
         var minBucket: ColorNote!
         
         // For each color note pair
         for cn in mainStore.state.colorNoteData {
             
             // Grab the rgb values from the current palette
-            let colRgb = cn.color.rgb()
-            print("palette rgb: \(colRgb)")
-            print("cell rgb: \(color)")
-            print("\n")
-            // Calculate the r,g,b differences between the selected palette color
-            // And the average color below the current cell
+            let inputColor = (Int(color.r), Int(color.g), Int(color.b), 1)
+            let paletteColor = cn.color.rgb()!
             
-            let rDif = Int(color.r) - colRgb!.r
-            let gDif = Int(color.g) - colRgb!.g
-            let bDif = Int(color.b) - colRgb!.b
+            let d = colorDistance(color1: inputColor, color2: paletteColor)
             
-            let pctDiffRed   = Float(rDif)   / 255
-            let pctDiffGreen = Float(gDif) / 255
-            let pctDiffBlue   = Float(bDif)  / 255
-            
-            let pctDif = (pctDiffRed + pctDiffGreen + pctDiffBlue) / 3 * 100
-            
-            print("Difference: \(pctDif)")
-            
-            if pctDif < currentMin {
-                currentMin = pctDif
+            if d < currentMin {
+                currentMin = d
                 minBucket = cn
             }
         }
@@ -150,14 +120,18 @@ class KeyboardCell: UIButton {
         return minBucket
     }
     
-    // Helper method to retrieve the image below a UIView
-    func getImageContext() -> UIImage {
+    // rewrite this
+    func colorDistance(color1: (r: Int,g: Int,b: Int, a: Int), color2: (r: Int,g: Int,b: Int, a: Int)) -> Double {
+        let rmean = ( color1.r + color2.r ) / 2
+        let r = color1.r - color2.r
+        let g = color1.g - color2.g
+        let b = color1.b - color2.b
         
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let imageContext = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return imageContext!
+        let f = ((512+rmean)*r*r) >> 8
+        let s = 4*g*g
+        let t = ( (767-rmean) * (b*b) ) >> 8
+        
+        return sqrt(Double(f + s + t))
     }
     
     override func layoutSubviews() {

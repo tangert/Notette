@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 import ReSwift
 
-class MainInterface_ViewController: UIViewController {
+class MainInterface_Container: UIViewController {
     
-    fileprivate var mainView: MainInterface_ViewModel {
-        return self.view as! MainInterface_ViewModel
+    fileprivate var mainView: MainInterface_ContainerModel {
+        return self.view as! MainInterface_ContainerModel
     }
     
     override func loadView() {
-        view = MainInterface_ViewModel()
+        view = MainInterface_ContainerModel()
     }
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class MainInterface_ViewController: UIViewController {
     }
 }
 
-extension MainInterface_ViewController: StoreSubscriber {
+extension MainInterface_Container: StoreSubscriber {
     func newState(state: AppState) {
         self.mainView.gotNewState(state: state)
     }

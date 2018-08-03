@@ -43,14 +43,10 @@ class Keyboard: CollectionView, Touchable {
         let numberOfColumns = width/cellSpace
         let numberOfRows = (height/cellSpace)
         
-        print("Num cols: \(numberOfColumns)")
-        print("Num rows: \(numberOfRows)")
-        
         // First create the rows
         let gridData = Array.init(repeating: 1, count: Int(numberOfRows * numberOfColumns))
         
         // MARK: Collection view providers
-        
         let dataProvider = ArrayDataProvider.init(data: gridData)
         
         let viewProvider = ClosureViewProvider(viewUpdater: { (cell: KeyboardCell, data: Int, index: Int) in

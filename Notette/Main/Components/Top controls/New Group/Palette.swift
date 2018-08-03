@@ -37,7 +37,6 @@ class Palette: CollectionView, StoreSubscriber {
 
         let viewProvider = ClosureViewProvider(viewUpdater: { (cell: PaletteCell, data: ColorNote, index: Int) in
             
-            //cell.backgroundColor = UIColor.getRandomColor()
             cell.populate(data: data)
             cell.tag = index
             cell.addTarget(self, action: #selector(self.onClick(sender:)), for: UIControlEvents.touchUpInside)
