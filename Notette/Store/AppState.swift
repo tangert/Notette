@@ -15,7 +15,7 @@ struct AppState: StateType {
     // Select these two independently from the UI
     var key: NoteType = NoteType.c
     var scaleType: ScaleType = ScaleType.major
-    var octave: Int = 4
+    var octave: Int = 5
     
     // Calculate the scale
     // Default to C Major, read only
@@ -47,15 +47,16 @@ struct AppState: StateType {
     }
     
     // Image data
+    // FIXME: Only grab this when necessary to avoid unnecessary state changes constantly
     var lastFrame: UIImage = UIImage()
     
     // UI relevant controls
     var keyboardIsOn: Bool = false
     var keyBoardCellWidth: Int = 35
-    
-    // TODO: selected notes / filtering
-    // Just store the indices
-    var selectedKeyboardCells = [Int]()
+    var userIsTouchingKeyboard: Bool = false
+    var touchedKeyboardCells = [Int]()
+    var previousTouchedKeyboardCells = [Int]()
+    var releasedKeyboardCells = [Int]()
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {

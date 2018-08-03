@@ -13,22 +13,18 @@ import ColorThiefSwift
 
 fileprivate let CAPTURE_RATE: TimeInterval = 0.75
 
-protocol FrameCaptureDelegate: AnyObject {
-    func didCaptureBuffer(buffer: CMSampleBuffer)
-}
-
 protocol Capturable {
-    var frameCaptureDelegate: FrameCaptureDelegate? { get set }
+    var frameCaptureDelegate: AVCaptureVideoDataOutputSampleBufferDelegate? { get set }
 }
 
-class FrameCaptureHandler: NSObject, FrameCaptureDelegate {
+class FrameCaptureHandler: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var delegateTarget: Capturable!
     var timer: Timer!
     var readyToProcess: Bool! = false
     
     // Variables to send to store
-    var capturedImage: UIImage!
+    static var capturedImage: UIImage!
     var palette: [UIColor]!
     
     init(delegateTarget: Capturable) {
@@ -41,29 +37,31 @@ class FrameCaptureHandler: NSObject, FrameCaptureDelegate {
         timer = Timer.scheduledTimer(timeInterval: CAPTURE_RATE, target: self, selector: #selector(self.process), userInfo: nil, repeats: true)
     }
     
-    // MARK: Primary method. This actually processes the frame and sends it to the store
-    func didCaptureBuffer(buffer: CMSampleBuffer) {
-        
+    // MARK: Primary output method
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+       
         // Grab the current image
         // Sets the last frame in the store
-        capturedImage = imageFromSampleBuffer(sampleBuffer: buffer)
-        mainStore.dispatch(setLastFrame(frame: capturedImage))
+        FrameCaptureHandler.capturedImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
         
         // Processes colors
         if readyToProcess {
             
             DispatchQueue.global(qos: .default).async {
                 // Grab all of the relevant colors
-                self.palette = self.extractPalette(image: self.capturedImage)
+                self.palette = self.extractPalette(image: FrameCaptureHandler.capturedImage)
                 
                 // Send to store
                 mainStore.dispatch(setNewColorPalette(colors: self.palette))
             }
             
             self.readyToProcess = false
-
+            
         }
     }
+    
+    // For capturing dropped frames
+    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {}
     
     // Sets the timer bool
     @objc func process() {

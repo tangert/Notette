@@ -15,3 +15,9 @@ extension Array {
         return self[index]
     }
 }
+
+extension Set {
+    func toArray() -> Array<Any> {
+        return Array(self)
+    }
+}

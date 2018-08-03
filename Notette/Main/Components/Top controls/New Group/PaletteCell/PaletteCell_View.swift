@@ -9,12 +9,25 @@
 import Foundation
 import UIKit
 
-class PaletteCell: UIButton {
-    
-    // MARK: Visual setup
+// FIXME: Refactor into view, model, viewmodel
+
+class PaletteCell_View: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        // Initial layout setup
+        setupLayout()
+        
+    }
+    
+    init(data: ColorNote) {
+        super.init(frame: .zero)
+        populate(data: data)
+    }
+    
+    // MARK: Visual and layout
+    func setupLayout() {
         
         let CORNER_RADIUS: CGFloat = 5
         
@@ -27,18 +40,6 @@ class PaletteCell: UIButton {
         clipsToBounds = true
         layer.cornerRadius = CORNER_RADIUS
         
-//        Shadow isn't working...
-//        let shadowLayer = CAShapeLayer()
-//        shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 5).cgPath
-//        shadowLayer.fillColor = UIColor.black.cgColor
-//
-//        shadowLayer.shadowColor = UIColor.darkGray.cgColor
-//        shadowLayer.shadowPath = shadowLayer.path
-//        shadowLayer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-//        shadowLayer.shadowOpacity = 0.5
-//        shadowLayer.shadowRadius = 5
-//        layer.insertSublayer(shadowLayer, at: 0)
-
         // Background blur
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -48,27 +49,20 @@ class PaletteCell: UIButton {
         
         // Insert the blur and shadow all the way behind
         insertSubview(blurEffectView, at: 0)
-    }
-    
-    init(data: ColorNote) {
-        super.init(frame: .zero)
-        populate(data: data)
+
+        
     }
     
     // MARK: Population
     func populate(data: ColorNote) {
         
-        // Animate the background fade in
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundColor = data.color.withAlphaComponent(0.75)
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundColor = data.color
         }
         
         // Set the correct note
         setTitle(data.note.type.description, for: .normal)
     }
-    
-    // MARK: User interactions
-    // FIXME: create touch up inside interactions and delegate for manager?
     
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -10,8 +10,25 @@ import Foundation
 import ReSwift
 
  // MARK: User actions
-struct touchKeyboardCells: Action {
-    var type = "TOUCH_KEYBOARD_CELLS"
+struct userTouchedKeyboard: Action {
+    var type = "USER_TOUCHED_KEYBOARD"
+    var touched: Bool
+    init(touched: Bool) {
+        self.touched = touched
+    }
+}
+
+// Sets the currently selected keyboard cells as indices
+struct setTouchedKeyboardCells: Action {
+    var type = "SET_TOUCHED_KEYBOARD_CELLS"
+    var cells: [Int]
+    init(cells: [Int]) {
+        self.cells = cells
+    }
+}
+
+struct setReleasedKeyboardCells: Action {
+    var type = "SET_RELEASED_KEYBOARD_CELLS"
     var cells: [Int]
     init(cells: [Int]) {
         self.cells = cells

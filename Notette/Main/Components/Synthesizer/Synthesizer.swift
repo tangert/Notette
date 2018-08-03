@@ -9,26 +9,53 @@
 import Foundation
 import UIKit
 import AVFoundation
+import MusicTheorySwift
 
 class Synthesizer: AVAudioEngine {
     
-    var sampler: AVAudioUnitSampler!
-    var reverb: AVAudioUnitReverb!
-    var delay: AVAudioUnitDelay!
+    var sampler = AVAudioUnitSampler()
+    var reverb = AVAudioUnitReverb()
+    var delay = AVAudioUnitDelay()
     
     override init() {
         super.init()
-        
-        sampler = AVAudioUnitSampler()
-        reverb = AVAudioUnitReverb()
-        delay = AVAudioUnitDelay()
+    }
+    
+    func playNote(_ note: Note) {
+        DispatchQueue.main.async {
+            self.sampler.startNote(UInt8(note.midiNote), withVelocity: 64, onChannel: 0)
+        }
+    }
+    
+    func stopNote(_ note: Note) {
+        DispatchQueue.main.async {
+            self.sampler.stopNote(UInt8(note.midiNote), onChannel: 0)
+        }
     }
     
     func startEngine() {
         
-        setupEngine(instrument: sampler, effects: [reverb,delay])
-        setupReverb(reverb)
-        setupDelay(delay)
+//        setupEngine(instrument: sampler, effects: [reverb,delay])
+//        setupReverb(reverb)
+//        setupDelay(delay)
+        
+        self.attach(sampler)
+        self.attach(reverb)
+//        self.attach(delay)
+        
+        self.connect(sampler, to: reverb, format: nil)
+        self.connect(reverb, to: self.mainMixerNode, format: nil)
+        
+        // Reverb
+        reverb.loadFactoryPreset(.mediumHall)
+        reverb.wetDryMix = 30.0
+        
+        // Delay
+        delay.wetDryMix = 15.0
+        delay.delayTime = 0.50
+        delay.feedback = 75.0
+        delay.lowPassCutoff = 16000.0
+        
         
         if self.isRunning {
             print("audio engine already running")
@@ -60,27 +87,27 @@ class Synthesizer: AVAudioEngine {
     
     func setupEngine(instrument: AVAudioUnitMIDIInstrument, effects: [AVAudioUnitEffect]) {
         
-        // 1. Attach all effects and instrument
+        // 1. Attach instrument
         self.attach(instrument)
         
+        // 2. Attach effects
         for e in effects {
             self.attach(e)
         }
         
-        // 2: Connect sampler to first effect
+        // 3: Connect sampler to first effect
         self.connect(instrument, to: effects[0], format: nil)
         
-        // 3: Link effects to each other
+        // 4: Link effects to each other
+        // Ex: connects sampler -> delay
+        //              delay   -> reverb
+        //              reverb  -> mainMix
+        
         for i in 1..<effects.count-1 {
-            
-            // Ex: connects sampler -> delay
-            //              delay   -> reverb
-            //              reverb  -> mainMix
-            
             self.connect(effects[i], to: effects[i+1], format: nil)
         }
         
-        // 4: Connect last effect to main mix
+        // 5: Connect last effect to main mix
         self.connect(effects[effects.count-1], to: self.mainMixerNode, format: nil)
     }
     

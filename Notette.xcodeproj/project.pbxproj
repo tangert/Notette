@@ -19,16 +19,21 @@
 		3634F423210F50470051B7BA /* TopControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F422210F50470051B7BA /* TopControls.swift */; };
 		3634F4312110E32F0051B7BA /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634F4302110E32F0051B7BA /* Palette.swift */; };
 		365147A1211498BE000B1BEE /* Synthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147A0211498BE000B1BEE /* Synthesizer.swift */; };
+		365147A32114AA74000B1BEE /* KeyboardCell_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147A22114AA74000B1BEE /* KeyboardCell_Model.swift */; };
+		365147A62114AAB0000B1BEE /* KeyboardCell_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147A52114AAB0000B1BEE /* KeyboardCell_ViewModel.swift */; };
+		365147A92114ABB7000B1BEE /* PaletteCell_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147A82114ABB7000B1BEE /* PaletteCell_ViewModel.swift */; };
+		365147AB2114ABC4000B1BEE /* PaletteCell_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147AA2114ABC4000B1BEE /* PaletteCell_Model.swift */; };
+		365147AD2114ACCE000B1BEE /* ColorProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365147AC2114ACCE000B1BEE /* ColorProcessor.swift */; };
 		3684493221110104009393FE /* AVFoundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684493121110104009393FE /* AVFoundation+Extensions.swift */; };
 		36844935211153E8009393FE /* ColorNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36844934211153E8009393FE /* ColorNote.swift */; };
 		3684493E2111EE08009393FE /* FrameCaptureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684493D2111EE08009393FE /* FrameCaptureHandler.swift */; };
 		368449412111F169009393FE /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449402111F169009393FE /* UIImage+Extensions.swift */; };
-		368449432112079E009393FE /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449422112079E009393FE /* Array+Extensions.swift */; };
-		3684494521120F6A009393FE /* PaletteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684494421120F6A009393FE /* PaletteCell.swift */; };
+		368449432112079E009393FE /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368449422112079E009393FE /* Collection+Extensions.swift */; };
+		3684494521120F6A009393FE /* PaletteCell_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684494421120F6A009393FE /* PaletteCell_View.swift */; };
 		368AE460211348FD00F31138 /* TouchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AE45F211348FD00F31138 /* TouchHandler.swift */; };
 		368AE4652113974700F31138 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AE4642113974700F31138 /* UIView+Extensions.swift */; };
 		369D20532112A90300E5DE31 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369D20522112A90300E5DE31 /* UIColor+Extensions.swift */; };
-		369D20552112B8DD00E5DE31 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369D20542112B8DD00E5DE31 /* KeyboardCell.swift */; };
+		369D20552112B8DD00E5DE31 /* KeyboardCell_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369D20542112B8DD00E5DE31 /* KeyboardCell_View.swift */; };
 		36D31353210D59E500B048DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D31352210D59E500B048DD /* AppDelegate.swift */; };
 		36D3135A210D59E700B048DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D31359210D59E700B048DD /* Assets.xcassets */; };
 		36D3135D210D59E700B048DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D3135B210D59E700B048DD /* LaunchScreen.storyboard */; };
@@ -69,16 +74,21 @@
 		3634F422210F50470051B7BA /* TopControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControls.swift; sourceTree = "<group>"; };
 		3634F4302110E32F0051B7BA /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		365147A0211498BE000B1BEE /* Synthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synthesizer.swift; sourceTree = "<group>"; };
+		365147A22114AA74000B1BEE /* KeyboardCell_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell_Model.swift; sourceTree = "<group>"; };
+		365147A52114AAB0000B1BEE /* KeyboardCell_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell_ViewModel.swift; sourceTree = "<group>"; };
+		365147A82114ABB7000B1BEE /* PaletteCell_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell_ViewModel.swift; sourceTree = "<group>"; };
+		365147AA2114ABC4000B1BEE /* PaletteCell_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell_Model.swift; sourceTree = "<group>"; };
+		365147AC2114ACCE000B1BEE /* ColorProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProcessor.swift; sourceTree = "<group>"; };
 		3684493121110104009393FE /* AVFoundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFoundation+Extensions.swift"; sourceTree = "<group>"; };
 		36844934211153E8009393FE /* ColorNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorNote.swift; sourceTree = "<group>"; };
 		3684493D2111EE08009393FE /* FrameCaptureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCaptureHandler.swift; sourceTree = "<group>"; };
 		368449402111F169009393FE /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		368449422112079E009393FE /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		3684494421120F6A009393FE /* PaletteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell.swift; sourceTree = "<group>"; };
+		368449422112079E009393FE /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		3684494421120F6A009393FE /* PaletteCell_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCell_View.swift; sourceTree = "<group>"; };
 		368AE45F211348FD00F31138 /* TouchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchHandler.swift; sourceTree = "<group>"; };
 		368AE4642113974700F31138 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		369D20522112A90300E5DE31 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		369D20542112B8DD00E5DE31 /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
+		369D20542112B8DD00E5DE31 /* KeyboardCell_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell_View.swift; sourceTree = "<group>"; };
 		36D3134F210D59E500B048DD /* Notette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D31352210D59E500B048DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D31359210D59E700B048DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,7 +197,7 @@
 				3684493121110104009393FE /* AVFoundation+Extensions.swift */,
 				368449402111F169009393FE /* UIImage+Extensions.swift */,
 				368AE4642113974700F31138 /* UIView+Extensions.swift */,
-				368449422112079E009393FE /* Array+Extensions.swift */,
+				368449422112079E009393FE /* Collection+Extensions.swift */,
 				369D20522112A90300E5DE31 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
@@ -199,6 +209,43 @@
 				365147A0211498BE000B1BEE /* Synthesizer.swift */,
 			);
 			path = Synthesizer;
+			sourceTree = "<group>";
+		};
+		365147A42114AA9D000B1BEE /* KeyboardCell */ = {
+			isa = PBXGroup;
+			children = (
+				369D20542112B8DD00E5DE31 /* KeyboardCell_View.swift */,
+				365147A52114AAB0000B1BEE /* KeyboardCell_ViewModel.swift */,
+				365147A22114AA74000B1BEE /* KeyboardCell_Model.swift */,
+			);
+			path = KeyboardCell;
+			sourceTree = "<group>";
+		};
+		365147A72114AB9F000B1BEE /* PaletteCell */ = {
+			isa = PBXGroup;
+			children = (
+				365147A82114ABB7000B1BEE /* PaletteCell_ViewModel.swift */,
+				3684494421120F6A009393FE /* PaletteCell_View.swift */,
+				365147AA2114ABC4000B1BEE /* PaletteCell_Model.swift */,
+			);
+			path = PaletteCell;
+			sourceTree = "<group>";
+		};
+		365147AE2114B16E000B1BEE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3684493D2111EE08009393FE /* FrameCaptureHandler.swift */,
+				365147AC2114ACCE000B1BEE /* ColorProcessor.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		365147AF2114B179000B1BEE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				368AE45F211348FD00F31138 /* TouchHandler.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		36844933211153CE009393FE /* Models */ = {
@@ -213,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				3634F4302110E32F0051B7BA /* Palette.swift */,
-				3684494421120F6A009393FE /* PaletteCell.swift */,
+				365147A72114AB9F000B1BEE /* PaletteCell */,
 			);
 			name = Palette;
 			path = "New Group";
@@ -225,15 +272,6 @@
 				3634F415210F4D7B0051B7BA /* KeySelector.swift */,
 			);
 			path = KeySelector;
-			sourceTree = "<group>";
-		};
-		3684493C2111ED78009393FE /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				368AE45F211348FD00F31138 /* TouchHandler.swift */,
-				3684493D2111EE08009393FE /* FrameCaptureHandler.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		36D31346210D59E500B048DD = {
@@ -302,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				3634F406210DFA120051B7BA /* Containers */,
-				3684493C2111ED78009393FE /* Delegates */,
 				3634F414210F4D460051B7BA /* Components */,
 				36844933211153CE009393FE /* Models */,
 				3634F408210DFA210051B7BA /* Reducers */,
@@ -315,7 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				3634F41A210F4EB80051B7BA /* Keyboard.swift */,
-				369D20542112B8DD00E5DE31 /* KeyboardCell.swift */,
+				365147A42114AA9D000B1BEE /* KeyboardCell */,
+				365147AF2114B179000B1BEE /* Delegates */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -324,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				3634F418210F4EAD0051B7BA /* CameraView.swift */,
+				365147AE2114B16E000B1BEE /* Delegates */,
 			);
 			path = "Camera view";
 			sourceTree = "<group>";
@@ -655,23 +694,28 @@
 				368AE4652113974700F31138 /* UIView+Extensions.swift in Sources */,
 				36D31385210D5DD200B048DD /* AppState.swift in Sources */,
 				3634F4312110E32F0051B7BA /* Palette.swift in Sources */,
+				365147A92114ABB7000B1BEE /* PaletteCell_ViewModel.swift in Sources */,
+				365147A62114AAB0000B1BEE /* KeyboardCell_ViewModel.swift in Sources */,
 				368AE460211348FD00F31138 /* TouchHandler.swift in Sources */,
-				3684494521120F6A009393FE /* PaletteCell.swift in Sources */,
+				3684494521120F6A009393FE /* PaletteCell_View.swift in Sources */,
 				3634F403210DF9B00051B7BA /* MainInterface_Container.swift in Sources */,
 				365147A1211498BE000B1BEE /* Synthesizer.swift in Sources */,
 				3634F41B210F4EB80051B7BA /* Keyboard.swift in Sources */,
 				3634F423210F50470051B7BA /* TopControls.swift in Sources */,
-				369D20552112B8DD00E5DE31 /* KeyboardCell.swift in Sources */,
+				369D20552112B8DD00E5DE31 /* KeyboardCell_View.swift in Sources */,
 				3684493E2111EE08009393FE /* FrameCaptureHandler.swift in Sources */,
 				369D20532112A90300E5DE31 /* UIColor+Extensions.swift in Sources */,
 				3684493221110104009393FE /* AVFoundation+Extensions.swift in Sources */,
 				36844935211153E8009393FE /* ColorNote.swift in Sources */,
+				365147A32114AA74000B1BEE /* KeyboardCell_Model.swift in Sources */,
+				365147AB2114ABC4000B1BEE /* PaletteCell_Model.swift in Sources */,
 				3634F419210F4EAD0051B7BA /* CameraView.swift in Sources */,
 				3634F405210DF9BC0051B7BA /* MainInterface_ContainerModel.swift in Sources */,
 				3634F40C210DFA4B0051B7BA /* MainInterface_Reducer.swift in Sources */,
-				368449432112079E009393FE /* Array+Extensions.swift in Sources */,
+				368449432112079E009393FE /* Collection+Extensions.swift in Sources */,
 				3634F40A210DFA3E0051B7BA /* MainInterface_Actions.swift in Sources */,
 				368449412111F169009393FE /* UIImage+Extensions.swift in Sources */,
+				365147AD2114ACCE000B1BEE /* ColorProcessor.swift in Sources */,
 				3634F416210F4D7B0051B7BA /* KeySelector.swift in Sources */,
 				36D31353210D59E500B048DD /* AppDelegate.swift in Sources */,
 			);

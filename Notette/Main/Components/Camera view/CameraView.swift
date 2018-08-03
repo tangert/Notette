@@ -16,7 +16,7 @@ fileprivate let CAPTURE_RATE: TimeInterval = 0.75
 class CameraView: UIView, Capturable {
     
     // MARK: Delegate
-    var frameCaptureDelegate: FrameCaptureDelegate?
+    var frameCaptureDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
     
     // MARK: Lazy var initialization
     // Only loaded when needed to save memory
@@ -25,7 +25,7 @@ class CameraView: UIView, Capturable {
         let v = AVCaptureVideoDataOutput()
         v.alwaysDiscardsLateVideoFrames = true
         v.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA as UInt32)] as [String : Any]
-        v.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        v.setSampleBufferDelegate(self.frameCaptureDelegate, queue: videoDataOutputQueue)
         v.connection(with: .video)?.isEnabled = true
         return v
     }()
@@ -95,7 +95,7 @@ class CameraView: UIView, Capturable {
             layer.addSublayer(previewLayer)
             
             let queue = DispatchQueue(label: "fr.popigny.videoQueue", attributes: [])
-            videoDataOutput.setSampleBufferDelegate(self, queue: queue)
+            videoDataOutput.setSampleBufferDelegate(self.frameCaptureDelegate, queue: queue)
             
             previewLayer.frame = UIScreen.main.bounds
             session.startRunning()
@@ -109,17 +109,4 @@ class CameraView: UIView, Capturable {
         super.layoutSubviews()
     }
 
-}
-
-// Create a frame capture object that is the delegate
-// MARK: Capture delegate
-
-extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
-    
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {}
-    
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        self.frameCaptureDelegate?.didCaptureBuffer(buffer: sampleBuffer)
-    }
-    
 }

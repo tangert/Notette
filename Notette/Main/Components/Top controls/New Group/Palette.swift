@@ -15,14 +15,15 @@ import MusicTheorySwift
 class Palette: CollectionView, StoreSubscriber {
     
     var dataProvider = ArrayDataProvider<ColorNote>(data: mainStore.state.colorNoteData)
+    var previousColors = mainStore.state.colors // initialize previous colors to avoid unnecessary state changes
 
-    // MARK: called every time state is updated
+    // MARK: called everytime there's a new palette
     func newState(state: AppState) {
-        
-        dataProvider.data = mainStore.state.colorNoteData
-        
-        DispatchQueue.main.async {
-            self.dataProvider.reloadData()
+        if state.colors != previousColors {
+            DispatchQueue.main.async {
+                self.dataProvider.data = mainStore.state.colorNoteData
+                self.previousColors = state.colors
+            }
         }
     }
     
@@ -31,11 +32,22 @@ class Palette: CollectionView, StoreSubscriber {
     init() {
         super.init(frame: .zero)
         mainStore.subscribe(self)
+        setupCollectionView()
+    }
+    
+    // MARK: Button event handlers
+    @objc func onClick(sender: UIButton) {
+        print("Note clicked")
+    }
+    
+    // MARK: Layout
+    
+    func setupCollectionView() {
         
         // Size constants
         let cellWidth = 35
-
-        let viewProvider = ClosureViewProvider(viewUpdater: { (cell: PaletteCell, data: ColorNote, index: Int) in
+        
+        let viewProvider = ClosureViewProvider(viewUpdater: { (cell: PaletteCell_View, data: ColorNote, index: Int) in
             
             cell.populate(data: data)
             cell.tag = index
@@ -64,14 +76,9 @@ class Palette: CollectionView, StoreSubscriber {
                             y: 0,
                             width: (( cellWidth * 2) * 8),
                             height: cellWidth*2)
+        
     }
     
-    // MARK: Button event handlers
-    @objc func onClick(sender: UIButton) {
-        print("Note clicked")
-    }
-    
-    // MARK: Layout
     override func layoutSubviews() {
         super.layoutSubviews()
     }

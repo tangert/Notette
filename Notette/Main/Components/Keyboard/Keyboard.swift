@@ -12,11 +12,15 @@ import CollectionKit
 import ReSwift
 import PinLayout
 
-class Keyboard: CollectionView, Touchable {
-
+class Keyboard: CollectionView, Touchable, StoreSubscriber {
+    
     // MARK: Touch delegate info
     var touchDelegate: TouchDelegate?
     var mainView: CollectionView!
+    var previouslyTouchedCells = Set<Int>()
+    
+    // MARK: Synth!
+    static let synth = Synthesizer()
     
     // MARK: Setup
     init() {
@@ -27,6 +31,54 @@ class Keyboard: CollectionView, Touchable {
         
         // Initialize touch handler for delegated actions
         let _ = TouchHandler(delegateTarget: self)
+        
+        // Setup synth
+        Keyboard.synth.startEngine()
+        
+        // Setup the collection view layout
+        setupCollectionView()
+        
+        isMultipleTouchEnabled = true
+    }
+    
+    // MARK: State listener
+    func newState(state: AppState) {
+        
+        // need to check if the current touched and previous touched are NOT the same
+        // if they are, then
+        
+        if state.userIsTouchingKeyboard {
+            updateCells(state: state)
+        }
+    }
+    
+    var pressCount = 0
+    
+    // Update the visual state in the grid
+    func updateCells(state: AppState) {
+        
+        let touched = Set(state.touchedKeyboardCells)
+        let released = Set(state.releasedKeyboardCells)
+        
+        if touched != previouslyTouchedCells {
+            for t in touched {
+                let cell = self.cell(at: t) as! KeyboardCell_View
+                    print("PRESS COUNT: \(pressCount)")
+                    cell.setState(state: .pressed)
+                    pressCount += 1
+            }
+        }
+        
+        for r in released {
+            let cell = self.cell(at: r) as! KeyboardCell_View
+            cell.setState(state: .notPressed)
+        }
+        
+        previouslyTouchedCells = Set(touched)
+    }
+    
+    // MARK: Layout
+    func setupCollectionView() {
         
         // Size constants
         let cellWidth = mainStore.state.keyBoardCellWidth
@@ -46,10 +98,9 @@ class Keyboard: CollectionView, Touchable {
         // First create the rows
         let gridData = Array.init(repeating: 1, count: Int(numberOfRows * numberOfColumns))
         
-        // MARK: Collection view providers
         let dataProvider = ArrayDataProvider.init(data: gridData)
         
-        let viewProvider = ClosureViewProvider(viewUpdater: { (cell: KeyboardCell, data: Int, index: Int) in
+        let viewProvider = ClosureViewProvider(viewUpdater: { (cell: KeyboardCell_View, data: Int, index: Int) in
             cell.tag = index
         })
         
@@ -77,8 +128,6 @@ class Keyboard: CollectionView, Touchable {
                             y: 0,
                             width: CGFloat(width),
                             height: CGFloat(height) + CGFloat(cellSpace))
-        
-        isMultipleTouchEnabled = true
         
     }
     
@@ -110,9 +159,4 @@ class Keyboard: CollectionView, Touchable {
         super.init(coder: aDecoder)
     }
     
-}
-
-extension Keyboard: StoreSubscriber {
-    func newState(state: AppState) {
-    }
 }
