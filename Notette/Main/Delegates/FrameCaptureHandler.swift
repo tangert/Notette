@@ -25,7 +25,7 @@ class FrameCaptureHandler: NSObject, FrameCaptureDelegate {
     
     var delegateTarget: Capturable!
     var timer: Timer!
-    var readyToProcess: Bool! // called at every capture cycle
+    var readyToProcess: Bool! = false
     
     // Variables to send to store
     var capturedImage: UIImage!
@@ -37,6 +37,7 @@ class FrameCaptureHandler: NSObject, FrameCaptureDelegate {
         self.delegateTarget = delegateTarget
         self.delegateTarget.frameCaptureDelegate = self
         
+        // Sets the capturing function ready to process colors
         timer = Timer.scheduledTimer(timeInterval: CAPTURE_RATE, target: self, selector: #selector(self.process), userInfo: nil, repeats: true)
     }
     
@@ -51,18 +52,16 @@ class FrameCaptureHandler: NSObject, FrameCaptureDelegate {
         // Processes colors
         if readyToProcess {
             
-            print("Processing")
-            
             DispatchQueue.global(qos: .default).async {
                 // Grab all of the relevant colors
                 self.palette = self.extractPalette(image: self.capturedImage)
                 
                 // Send to store
                 mainStore.dispatch(setNewColorPalette(colors: self.palette))
-                
-                // Turn off the loop
-                self.readyToProcess = false
             }
+            
+            self.readyToProcess = false
+
         }
     }
     
